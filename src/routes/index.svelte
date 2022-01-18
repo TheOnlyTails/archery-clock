@@ -18,7 +18,6 @@
 </script>
 
 <svelte:window
-  on:click={changeState}
   on:keydown={handleKeys}
 />
 
