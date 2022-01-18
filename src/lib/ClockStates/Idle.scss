@@ -1,0 +1,18 @@
+h1 {
+	margin: 0;
+	font-size: 3rem;
+	font-weight: 500;
+}
+
+p {
+	font-weight: 500;
+}
+
+:global {
+	.settings-dialog .content-dialog-body .settings {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		align-items: center;
+		gap: 1rem;
+	}
+}
