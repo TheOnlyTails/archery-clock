@@ -17,9 +17,6 @@
   onMount(() => {
     loaded = true
 
-    // next end
-    $currentEnd++
-
     // toggle ABCD if enabled
     if ($firingRotationType) $nowShooting = $nowShooting === "AB" ? "CD" : "AB"
     // on the start of a new end, reset ABCD

@@ -29,6 +29,9 @@
       } else {
         endDone = true
         endTimer = 0
+
+        // next end
+        $currentEnd++
       }
     }
   }
