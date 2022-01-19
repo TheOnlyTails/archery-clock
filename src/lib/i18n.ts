@@ -7,7 +7,7 @@ export default () => {
   addMessages("he", he)
 
   init({
-    fallbackLocale: "en",
+    fallbackLocale: "he",
     initialLocale: getLocaleFromNavigator(),
   })
 }

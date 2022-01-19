@@ -16,6 +16,7 @@
   import { Idle, Walkup, End } from "$lib"
 
   import "fluent-svelte/theme.css"
+  import { _ } from "svelte-i18n"
 
   const handleKeys = (e: KeyboardEvent) => {
     if ($state !== "end" && (
@@ -28,6 +29,12 @@
     }
   }
 </script>
+
+<svelte:head>
+  <title>{$_("title")}</title>
+  <meta content={$_("title")} name="title">
+  <meta content={$_("title")} name="og:title">
+</svelte:head>
 
 <svelte:window
   on:keydown={handleKeys}

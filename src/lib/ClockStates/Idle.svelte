@@ -29,13 +29,14 @@
 
 {#if loaded}
   <main class="idle" in:fly={{ y: -6, duration: 400 }}>
-    <h1>Archer Clock</h1>
+    <h1>{$_("title")}</h1>
     <p>{$_("press_to_begin")}</p>
 
     <Button class="settings-button" on:click={() => settingsDialogOpen = true}>
       {@html Settings}
       {$_("settings.button")}
     </Button>
+
     <ContentDialog bind:open={settingsDialogOpen} title={$_("settings.title")} class="settings-dialog">
       <div class="settings">
         <label for="setting-ends">{$_("settings.ends_per_round", { values: { default: ends.defaultValue } })}</label>
