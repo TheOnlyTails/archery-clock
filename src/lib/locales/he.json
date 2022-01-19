@@ -1,0 +1,23 @@
+{
+	"press_to_begin": "לחץ על רווח כדי להתחיל",
+	"settings": {
+		"button": "הגדרות",
+		"title": "הגדרות שעון",
+		"ends_per_round": "סטים בסבב (ברירת מחדל: {default})",
+		"firing_rotation": "שיטת ירי (ברירת מחדל: {default})",
+		"end_length": "אורך סט בשניות (ברירת מחדל: {default})",
+		"walkup_length": "זמן עלייה לקו יורים בשניות (ברירת מחדל: {default})",
+		"warning_time": "זמן אזהרה לפני סוף סט בשניות (ברירת מחזל: {default})",
+		"done": "אשר"
+	},
+	"clock_info": {
+		"current_end": "סט נוכחי",
+		"up_next": "הבאים בתור"
+	},
+	"walkup": {
+		"title": "עלייה לקו יורים"
+	},
+	"end": {
+		"title": "סט {current}/{total} · {abcd}"
+	}
+}

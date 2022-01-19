@@ -2,17 +2,25 @@
   import { onMount } from "svelte"
   import { changeState } from "$lib/clock-state"
   import { walkupLength } from "$lib/settings"
+  import { _ } from "svelte-i18n"
 
   /**
    * number of seconds during walkup
    */
-  let walkupTimer = 0
+  let walkupTimer = $walkupLength
 
   onMount(() => {
-    setInterval(() => walkupTimer++, 1000)
+    setInterval(() => walkupTimer--, 1000)
   })
 
-  $: if (walkupTimer > $walkupLength) changeState()
+  $: if (walkupTimer <= 0) changeState()
 </script>
 
-Now in walkup: {walkupTimer} seconds passed
+<main class="walkup">
+  <h1>{$_("walkup.title")}</h1>
+  <p>{walkupTimer}</p>
+</main>
+
+<style lang="scss">
+	@use "./Walkup";
+</style>

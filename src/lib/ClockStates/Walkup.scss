@@ -1,0 +1,20 @@
+.walkup {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+
+	background: hsl(5, 100%, 44%);
+	inline-size: 100%;
+	block-size: 100vh;
+
+	h1 {
+		font-size: 4rem;
+		font-weight: 500;
+	}
+
+	p {
+		font-size: 10rem;
+		font-weight: 500;
+	}
+}

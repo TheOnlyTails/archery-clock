@@ -1,11 +1,14 @@
+<!--suppress XmlInvalidId -->
 <script lang="ts">
   import { fly } from "svelte/transition"
   import { onMount } from "svelte"
   import { currentEnd, nowShooting } from "$lib/clock-state"
-  import { endLength, endParts, ends, walkupLength, warningTimeUntilEnd } from "$lib/settings"
+  import { endLength, ends, firingRotationType, walkupLength, warningTimeUntilEnd } from "$lib/settings"
+  import { Info } from "$lib"
 
-  import { Button, Checkbox, ContentDialog, IconButton, NumberBox } from "fluent-svelte"
+  import { Button, ComboBox, ContentDialog, NumberBox } from "fluent-svelte"
   import Settings from "@fluentui/svg-icons/icons/settings_16_regular.svg?raw"
+  import { _ } from "svelte-i18n"
 
   let loaded = false
 
@@ -13,40 +16,52 @@
 
   onMount(() => {
     loaded = true
+
+    // next end
+    $currentEnd++
+
+    // toggle ABCD if enabled
+    if ($firingRotationType) $nowShooting = $nowShooting === "AB" ? "CD" : "AB"
+    // on the start of a new end, reset ABCD
+    if ($currentEnd === 1) $nowShooting = "AB"
   })
 </script>
 
 {#if loaded}
-  <div in:fly={{ y: -6, duration: 400 }}>
+  <main class="idle" in:fly={{ y: -6, duration: 400 }}>
     <h1>Archer Clock</h1>
-    <p>Press any key to begin walkup</p>
-    <h2>Current End: {$currentEnd}/{$ends}</h2>
-    <h3>Up next: {$nowShooting}</h3>
+    <p>{$_("press_to_begin")}</p>
 
-    <IconButton on:click={() => settingsDialogOpen = true}>
+    <Button class="settings-button" on:click={() => settingsDialogOpen = true}>
       {@html Settings}
-    </IconButton>
-    <ContentDialog bind:open={settingsDialogOpen} title="Clock Settings" class="settings-dialog">
+      {$_("settings.button")}
+    </Button>
+    <ContentDialog bind:open={settingsDialogOpen} title={$_("settings.title")} class="settings-dialog">
       <div class="settings">
-        <label for="setting-ends">Ends per round (Default: {ends.defaultValue})</label>
+        <label for="setting-ends">{$_("settings.ends_per_round", { values: { default: ends.defaultValue } })}</label>
         <NumberBox id="setting-ends" bind:value={$ends} min={1} max={50} inline />
 
-        <label for="setting-end-parts">ABCD Enabled (Default: {endParts.defaultValue})</label>
-        <Checkbox id="setting-end-parts" bind:checked={$endParts} />
+        <label
+          for="setting-firing-rotation">{$_("settings.firing_rotation", { values: { default: firingRotationType.defaultValue } })}</label>
+        <ComboBox id="setting-firing-rotation" items={[{name: "AB"},{name: "ABCD"}]} bind:value={$firingRotationType} />
 
-        <label for="setting-end-length">End Length in seconds (Default: {endLength.defaultValue})</label>
+        <label
+          for="setting-end-length">{$_("settings.end_length", { values: { default: endLength.defaultValue } })}</label>
         <NumberBox id="setting-end-length" bind:value={$endLength} min={10} max={3600} inline />
 
-        <label for="setting-walkup-length">Walkup Length in seconds (Default: {walkupLength.defaultValue})</label>
+        <label
+          for="setting-walkup-length">{$_("settings.walkup_length", { values: { default: walkupLength.defaultValue } })}</label>
         <NumberBox id="setting-walkup-length" bind:value={$walkupLength} min={10} max={300} inline />
 
-        <label for="setting-warning-time">Warning time in seconds before the end of an End
-          (Default: {warningTimeUntilEnd.defaultValue})</label>
+        <label
+          for="setting-warning-time">{$_("settings.warning_time", { values: { default: warningTimeUntilEnd.defaultValue } })}</label>
         <NumberBox id="setting-warning-time" bind:value={$warningTimeUntilEnd} min={10} max={300} inline />
       </div>
-      <Button slot="footer" variant="accent" on:click={() => settingsDialogOpen = false}>Done</Button>
+      <Button slot="footer" variant="accent" on:click={() => settingsDialogOpen = false}>{$_("settings.done")}</Button>
     </ContentDialog>
-  </div>
+
+    <Info />
+  </main>
 {/if}
 
 <style lang="scss">

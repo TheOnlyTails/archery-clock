@@ -30,8 +30,8 @@ export const nextState: (ClockState) => ClockState = (state: ClockState) => {
 /**
  * Update the clock state with the next state
  */
-export const changeState = () => state.update(s => nextState(s))
+export const changeState = () => state.update((s) => nextState(s))
 
-currentEnd.subscribe(value => {
-  if (value > get(ends)) currentEnd.set(1)
+currentEnd.subscribe((value) => {
+  if (value > get(ends) || value < 0) currentEnd.set(1)
 })

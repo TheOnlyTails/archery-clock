@@ -1,0 +1,23 @@
+{
+	"press_to_begin": "Press spacebar to begin",
+	"settings": {
+		"button": "Settings",
+		"title": "Clock settings",
+		"ends_per_round": "Ends per round (Default: {default})",
+		"firing_rotation": "Firing Rotation (Default: {default})",
+		"end_length": "End length in seconds (Default: {default})",
+		"walkup_length": "Walkup length in seconds (Default: {default})",
+		"warning_time": "Warning time in seconds before the end of an End (Default: {default})",
+		"done": "Done"
+	},
+	"clock_info": {
+		"current_end": "Current End",
+		"up_next": "Up Next"
+	},
+	"walkup": {
+		"title": "Walkup"
+	},
+	"end": {
+		"title": "End {current}/{total} · {abcd}"
+	}
+}

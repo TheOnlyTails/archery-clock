@@ -1,18 +1,51 @@
-h1 {
-	margin: 0;
-	font-size: 3rem;
-	font-weight: 500;
-}
+@use "node_modules/.pnpm/fluent-svelte@1.2.0/node_modules/fluent-svelte/mixins" as *;
 
-p {
-	font-weight: 500;
-}
+.idle {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	margin: 1rem;
 
-:global {
-	.settings-dialog .content-dialog-body .settings {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		align-items: center;
-		gap: 1rem;
+	h1 {
+		font-size: 3rem;
+		font-weight: bold;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		margin-block-start: 1rem;
+	}
+
+	p {
+		font-size: 1.25rem;
+		font-weight: 500;
+	}
+
+	:global {
+		.settings-button {
+			display: flex;
+			align-items: center;
+			gap: 1ch;
+
+			padding: 1ch;
+
+			font-size: 1.5rem;
+			font-weight: 500;
+
+			svg {
+				@include icon($size: 1.5rem);
+			}
+		}
+
+		.settings-dialog .content-dialog-body .settings {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			align-items: center;
+			gap: 1rem;
+
+			.combo-box .button .combo-box-label {
+				text-align: start;
+			}
+		}
 	}
 }
