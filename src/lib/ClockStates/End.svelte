@@ -25,13 +25,13 @@
       e.preventDefault()
 
       if (endDone) {
+        // next end
+        $currentEnd++
+
         changeState()
       } else {
         endDone = true
         endTimer = 0
-
-        // next end
-        $currentEnd++
       }
     }
   }
