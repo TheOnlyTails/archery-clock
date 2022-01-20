@@ -7,7 +7,7 @@
   import { NextButton } from "$lib"
 
   let endTimer = $endLength
-  let endDone = false
+  $: endDone = endTimer === 0
 
   onMount(() => {
     setInterval(() => {
@@ -15,7 +15,6 @@
     }, 1000)
   })
 
-  $: if (endTimer === 0) endDone = true
 
   const stopClock = (e: KeyboardEvent) => {
     if (
@@ -34,8 +33,9 @@
       // next end
       $currentEnd++
       changeState()
+    } else if (endTimer >= $warningTimeUntilEnd) {
+      endTimer = $warningTimeUntilEnd
     } else {
-      endDone = true
       endTimer = 0
     }
   }
@@ -43,7 +43,7 @@
 
 <svelte:window on:keydown={stopClock} />
 
-<main class="end" class:done={endTimer === 0} class:warning={endTimer < $warningTimeUntilEnd}>
+<main class="end" class:done={endTimer === 0} class:warning={endTimer <= $warningTimeUntilEnd}>
   <h1>{$_("end.title", { values: { current: $currentEnd, total: $ends, abcd: $nowShooting } })}</h1>
   <p>{endTimer}</p>
   <NextButton on:click={() => next()} />
