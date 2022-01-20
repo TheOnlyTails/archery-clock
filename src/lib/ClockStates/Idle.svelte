@@ -1,7 +1,7 @@
 <!--suppress XmlInvalidId -->
 <script lang="ts">
   import { onMount } from "svelte"
-  import { fly } from "svelte/transition"
+  import { slide } from "svelte/transition"
   import { _ } from "svelte-i18n"
   import { currentEnd } from "$lib/clock-state"
   import { endLength, ends, firingRotationType, walkupLength, warningTimeUntilEnd } from "$lib/settings"
@@ -21,7 +21,7 @@
 </script>
 
 {#if loaded}
-  <main class="idle" in:fly={{ y: -6, duration: 400 }}>
+  <main class="idle" in:slide={{ duration: 400 }}>
     <h1>{$_("title")}</h1>
     <p>{$_("press_to_begin")}</p>
 
