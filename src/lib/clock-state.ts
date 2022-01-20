@@ -1,6 +1,6 @@
 import { derived, get, type Readable } from "svelte/store"
 import { ends, firingRotationType } from "$lib/settings"
-import { defaultValue } from "$lib/store-utils"
+import { defaultValue } from "$util/store-utils"
 
 export type ClockState = "idle" | "walkup" | "end"
 

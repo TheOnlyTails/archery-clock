@@ -3,6 +3,7 @@ import preprocess from "svelte-preprocess"
 import autoprefixer from "autoprefixer"
 import cssnano from "cssnano"
 import mediaMinmax from "postcss-media-minmax"
+import * as path from "path"
 
 /** @type {import("@sveltejs/kit").Config} */
 const config = {
@@ -19,6 +20,13 @@ const config = {
 
     // hydrate the <div id="svelte"> element in src/app.html
     target: "#svelte",
+    vite: {
+      resolve: {
+        alias: {
+          $util: path.resolve("./src/lib/util"),
+        },
+      },
+    },
   },
 }
 

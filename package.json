@@ -1,5 +1,5 @@
 {
-	"name": "archey-clock",
+	"name": "archery-clock",
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "svelte-kit dev",

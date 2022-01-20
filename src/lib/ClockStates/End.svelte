@@ -4,7 +4,7 @@
 
   import { changeState, currentEnd, nowShooting } from "$lib/clock-state"
   import { endLength, ends, warningTimeUntilEnd } from "$lib/settings"
-  import NextButton from "$lib/util/NextButton.svelte"
+  import { NextButton } from "$lib"
 
   let endTimer = $endLength
   let endDone = false

@@ -4,8 +4,7 @@
   import { fly } from "svelte/transition"
   import { _ } from "svelte-i18n"
   import { endLength, ends, firingRotationType, walkupLength, warningTimeUntilEnd } from "$lib/settings"
-  import { Info } from "$lib"
-  import NextButton from "$lib/util/NextButton.svelte"
+  import { Info, NextButton } from "$lib"
 
   import { Button, ComboBox, ContentDialog, NumberBox } from "fluent-svelte"
   import Settings from "@fluentui/svg-icons/icons/settings_16_regular.svg?raw"

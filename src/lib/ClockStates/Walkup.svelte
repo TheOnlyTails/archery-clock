@@ -3,7 +3,7 @@
   import { changeState } from "$lib/clock-state"
   import { walkupLength } from "$lib/settings"
   import { _ } from "svelte-i18n"
-  import NextButton from "$lib/util/NextButton.svelte"
+  import { NextButton } from "$lib"
 
   /**
    * number of seconds during walkup

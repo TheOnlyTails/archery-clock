@@ -31,6 +31,12 @@
 			],
 			"$lib/*": [
 				"src/lib/*"
+			],
+			"$util": [
+				"src/lib/util"
+			],
+			"$util/*": [
+				"src/lib/util/*"
 			]
 		}
 	},

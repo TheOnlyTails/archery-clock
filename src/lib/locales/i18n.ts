@@ -1,6 +1,6 @@
 import { addMessages, getLocaleFromNavigator, init } from "svelte-i18n"
-import en from "./locales/en.json"
-import he from "./locales/he.json"
+import en from "./en.json"
+import he from "./he.json"
 
 export default () => {
   addMessages("en", en)

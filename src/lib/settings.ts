@@ -1,4 +1,4 @@
-import { defaultValue } from "$lib/store-utils"
+import { defaultValue } from "$util/store-utils"
 
 /**
  * How much time is given to walk up to the shooting line
