@@ -49,15 +49,5 @@
 {/if}
 
 <style global lang="scss">
-	body {
-		margin: 0;
-		background: var(--fds-solid-background-base);
-		color: var(--fds-text-primary);
-		font-family: var(--fds-font-family-display);
-		font-size: 1rem;
-	}
-
-	html[lang="he"], html[lang="ar"] { // this was surprisingly easy
-		direction: rtl;
-	}
+  @use "src/styles/global";
 </style>

@@ -20,5 +20,9 @@
 	},
 	"end": {
 		"title": "סט {current}/{total} · {abcd}"
+	},
+	"next_button": {
+		"start": "התחל",
+		"continue": "המשך"
 	}
 }

@@ -20,5 +20,9 @@
 	},
 	"end": {
 		"title": "End {current}/{total} · {abcd}"
+	},
+	"next_button": {
+		"start": "Start",
+		"continue": "Continue"
 	}
 }

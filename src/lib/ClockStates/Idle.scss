@@ -19,19 +19,12 @@
 	}
 
 	:global {
-		.settings-button {
+		.buttons {
 			display: flex;
 			align-items: center;
 			gap: 1ch;
 
-			padding: 1ch;
-
-			font-size: 1.5rem;
-			font-weight: 500;
-
-			svg {
-				@include icon($size: 1.5rem);
-			}
+			.button { @include button }
 		}
 
 		.settings-dialog .content-dialog-body .settings {

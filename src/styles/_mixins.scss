@@ -7,7 +7,7 @@
 @mixin display {
 	font-size: 20vw;
 	font-weight: 500;
-	margin-block-start: 1rem;
+	margin-block: 1rem;
 
 	@media (width < 1000px) {
 		font-size: 40vw;
@@ -22,5 +22,20 @@
 
 	@media (width < 1000px) {
 		font-size: 7.5vw;
+	}
+}
+
+@mixin button {
+	display: flex;
+	align-items: center;
+	gap: 1ch;
+
+	padding: 1ch;
+
+	font-size: 1.5rem;
+	font-weight: 500;
+
+	svg {
+		@include icon($size: 1.5rem);
 	}
 }
