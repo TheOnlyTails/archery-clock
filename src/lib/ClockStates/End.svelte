@@ -3,7 +3,7 @@
   import { _ } from "svelte-i18n"
 
   import { changeState, currentEnd, nowShooting } from "$lib/clock-state"
-  import { endLength, ends, warningTimeUntilEnd } from "$lib/settings"
+  import { endLength, ends, firingRotationType, warningTimeUntilEnd } from "$lib/settings"
   import { NextButton } from "$lib"
 
   let endTimer = $endLength
@@ -30,8 +30,9 @@
 
   const next = () => {
     if (endDone) {
-      // next end
-      $currentEnd++
+      if ($firingRotationType === "ABCD") $nowShooting = $nowShooting === "CD" ? "AB" : "CD"
+      if ($nowShooting === "AB") $currentEnd++
+
       changeState()
     } else if (endTimer >= $warningTimeUntilEnd) {
       endTimer = $warningTimeUntilEnd

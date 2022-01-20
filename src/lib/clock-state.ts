@@ -1,5 +1,5 @@
-import { derived, get, type Readable } from "svelte/store"
-import { ends, firingRotationType } from "$lib/settings"
+import { get } from "svelte/store"
+import { ends } from "$lib/settings"
 import { defaultValue } from "$util/store-utils"
 
 export type ClockState = "idle" | "walkup" | "end"
@@ -9,11 +9,7 @@ export type FiringRotation = "AB" | "CD"
 export const state = defaultValue("idle" as ClockState)
 
 export const currentEnd = defaultValue(1)
-export const nowShooting: Readable<FiringRotation> = derived([currentEnd, firingRotationType],
-  ([$currentEnd, $firingRotationType]) => $firingRotationType === "ABCD"
-    ? $currentEnd % 2 === 1 ? "AB" : "CD"
-    : "AB",
-)
+export const nowShooting = defaultValue("AB" as FiringRotation)
 
 /**
  * Get the next clock state
