@@ -24,5 +24,6 @@
 	"next_button": {
 		"start": "Start",
 		"continue": "Continue"
-	}
+	},
+	"reset_button": "Reset"
 }

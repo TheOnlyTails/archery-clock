@@ -3,11 +3,13 @@
   import { onMount } from "svelte"
   import { fly } from "svelte/transition"
   import { _ } from "svelte-i18n"
+  import { currentEnd } from "$lib/clock-state"
   import { endLength, ends, firingRotationType, walkupLength, warningTimeUntilEnd } from "$lib/settings"
   import { Info, NextButton } from "$lib"
 
   import { Button, ComboBox, ContentDialog, NumberBox } from "fluent-svelte"
   import Settings from "@fluentui/svg-icons/icons/settings_16_regular.svg?raw"
+  import Reset from "@fluentui/svg-icons/icons/arrow_counterclockwise_16_regular.svg?raw"
 
   let loaded = false
 
@@ -25,10 +27,14 @@
 
     <div class="buttons">
       <Button class="settings-button" on:click={() => settingsDialogOpen = true}>
-        {@html Settings}
-        {$_("settings.button")}
+        {@html Settings} {$_("settings.button")}
       </Button>
       <NextButton />
+      {#if $currentEnd > 1}
+        <Button class="reset-button" on:click={() => $currentEnd = 1}>
+          {@html Reset} {$_("reset_button")}
+        </Button>
+      {/if}
     </div>
 
     <ContentDialog bind:open={settingsDialogOpen} title={$_("settings.title")} class="settings-dialog">
