@@ -3,8 +3,6 @@
   import { onMount } from "svelte"
   import { fly } from "svelte/transition"
   import { _ } from "svelte-i18n"
-
-  import { currentEnd, nowShooting } from "$lib/clock-state"
   import { endLength, ends, firingRotationType, walkupLength, warningTimeUntilEnd } from "$lib/settings"
   import { Info } from "$lib"
   import NextButton from "$lib/util/NextButton.svelte"
@@ -18,11 +16,6 @@
 
   onMount(() => {
     loaded = true
-
-    // toggle ABCD if enabled
-    if ($firingRotationType) $nowShooting = $nowShooting === "AB" ? "CD" : "AB"
-    // on the start of a new end, reset ABCD
-    if ($currentEnd === 1) $nowShooting = "AB"
   })
 </script>
 

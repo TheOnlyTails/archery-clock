@@ -1,14 +1,19 @@
-import { get, writable, type Writable } from "svelte/store"
-import { ends } from "$lib/settings"
+import { derived, get, type Readable } from "svelte/store"
+import { ends, firingRotationType } from "$lib/settings"
+import { defaultValue } from "$lib/store-utils"
 
 export type ClockState = "idle" | "walkup" | "end"
 
-export type Shooters = "AB" | "CD"
+export type FiringRotation = "AB" | "CD"
 
-export const state: Writable<ClockState> = writable("idle")
+export const state = defaultValue("idle" as ClockState)
 
-export const currentEnd = writable(1)
-export const nowShooting: Writable<Shooters> = writable("AB")
+export const currentEnd = defaultValue(1)
+export const nowShooting: Readable<FiringRotation> = derived([currentEnd, firingRotationType],
+  ([$currentEnd, $firingRotationType]) => $firingRotationType === "ABCD"
+    ? $currentEnd % 2 === 1 ? "AB" : "CD"
+    : "AB",
+)
 
 /**
  * Get the next clock state
