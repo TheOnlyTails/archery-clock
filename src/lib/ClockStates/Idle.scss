@@ -22,7 +22,9 @@
 		.buttons {
 			display: flex;
 			align-items: center;
+			justify-content: center;
 			gap: 1ch;
+			flex-wrap: wrap;
 
 			.button { @include button }
 		}
