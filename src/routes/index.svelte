@@ -57,10 +57,6 @@
 		font-size: 1rem;
 	}
 
-	h1, h2, h3, h4, h5, h6 {
-		margin: 0;
-	}
-
 	html[lang="he"], html[lang="ar"] { // this was surprisingly easy
 		direction: rtl;
 	}

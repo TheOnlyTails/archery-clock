@@ -1,4 +1,4 @@
-@use "node_modules/.pnpm/fluent-svelte@1.2.0/node_modules/fluent-svelte/mixins" as *;
+@use "src/styles/mixins" as *;
 
 .idle {
 	display: flex;
@@ -8,12 +8,9 @@
 	margin: 1rem;
 
 	h1 {
-		font-size: 3rem;
+		margin-block: 0;
+		font-size: 7.5vw;
 		font-weight: bold;
-	}
-
-	h1, h2, h3, h4, h5, h6 {
-		margin-block-start: 1rem;
 	}
 
 	p {

@@ -1,0 +1,26 @@
+@mixin icon($size: var(--fds-body-font-size)) {
+	inline-size: $size;
+	block-size: auto;
+	fill: currentColor;
+}
+
+@mixin display {
+	font-size: 20vw;
+	font-weight: 500;
+	margin-block-start: 1rem;
+
+	@media (width < 1000px) {
+		font-size: 40vw;
+	}
+}
+
+@mixin title {
+	font-size: 5vw;
+	font-weight: 500;
+	color: currentColor;
+	margin-block-start: 5vh;
+
+	@media (width < 1000px) {
+		font-size: 7.5vw;
+	}
+}

@@ -14,23 +14,5 @@
 </div>
 
 <style lang="scss">
-	.clock-state-info {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-direction: column;
-		margin-block: 1rem;
-
-		font-size: 5rem;
-
-		h2 {
-			margin: 0;
-
-			span {
-				color: var(--fds-system-attention);
-
-				&.cd { color: var(--fds-system-critical) }
-			}
-		}
-	}
+	@use "./Info";
 </style>
