@@ -25,7 +25,7 @@ dependencies:
 devDependencies:
   '@fluentui/svg-icons': 1.1.157
   '@sveltejs/adapter-auto': 1.0.0-next.13
-  '@sveltejs/kit': 1.0.0-next.234_sass@1.49.0+svelte@3.46.2
+  '@sveltejs/kit': 1.0.0-next.235_sass@1.49.0+svelte@3.46.2
   autoprefixer: 10.4.2_postcss@8.4.5
   cssnano: 5.0.15_postcss@8.4.5
   fluent-svelte: 1.2.0
@@ -141,8 +141,8 @@ packages:
       esbuild: 0.13.15
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.234_sass@1.49.0+svelte@3.46.2:
-    resolution: { integrity: sha512-vnXLkk4GakytCM+TxFVVXfvJaXq/vY6AWpaUAKr1ZsQD2LSKteoaBlca1qI7fCRwccaPSkI+DOc+bNdgGiBBSQ== }
+  /@sveltejs/kit/1.0.0-next.235_sass@1.49.0+svelte@3.46.2:
+    resolution: { integrity: sha512-VCat9bA8yUF7CP2RYzTTdk43ZjQybN7ZT53Sv870mUGtwUNwLEx4egtF4dSkfQuIya+1hNU8+doRNhpmsIrVTQ== }
     engines: { node: '>=14.13' }
     hasBin: true
     peerDependencies:
@@ -946,7 +946,7 @@ packages:
       postcss: ^8.2.2
     dependencies:
       postcss: 8.4.5
-      postcss-selector-parser: 6.0.8
+      postcss-selector-parser: 6.0.9
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -1039,7 +1039,7 @@ packages:
       caniuse-api: 3.0.0
       cssnano-utils: 3.0.0_postcss@8.4.5
       postcss: 8.4.5
-      postcss-selector-parser: 6.0.8
+      postcss-selector-parser: 6.0.9
     dev: true
 
   /postcss-minify-font-values/5.0.2_postcss@8.4.5:
@@ -1085,7 +1085,7 @@ packages:
     dependencies:
       alphanum-sort: 1.0.2
       postcss: 8.4.5
-      postcss-selector-parser: 6.0.8
+      postcss-selector-parser: 6.0.9
     dev: true
 
   /postcss-normalize-charset/5.0.1_postcss@8.4.5:
@@ -1211,8 +1211,8 @@ packages:
       postcss-value-parser: 4.2.0
     dev: true
 
-  /postcss-selector-parser/6.0.8:
-    resolution: { integrity: sha512-D5PG53d209Z1Uhcc0qAZ5U3t5HagH3cxu+WLZ22jt3gLUpXM4eXXfiO14jiDWST3NNooX/E8wISfOhZ9eIjGTQ== }
+  /postcss-selector-parser/6.0.9:
+    resolution: { integrity: sha512-UO3SgnZOVTwu4kyLR22UQ1xZh086RyNZppb7lLAKBFK8a32ttG5i87Y/P3+2bRSjZNyJ1B7hfFNo273tKe9YxQ== }
     engines: { node: '>=4' }
     dependencies:
       cssesc: 3.0.0
@@ -1238,7 +1238,7 @@ packages:
     dependencies:
       alphanum-sort: 1.0.2
       postcss: 8.4.5
-      postcss-selector-parser: 6.0.8
+      postcss-selector-parser: 6.0.9
     dev: true
 
   /postcss-value-parser/4.2.0:
@@ -1398,7 +1398,7 @@ packages:
     dependencies:
       browserslist: 4.19.1
       postcss: 8.4.5
-      postcss-selector-parser: 6.0.8
+      postcss-selector-parser: 6.0.9
     dev: true
 
   /supports-preserve-symlinks-flag/1.0.0:

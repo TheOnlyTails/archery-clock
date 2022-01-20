@@ -1,6 +1,6 @@
 {
 	"title": "Archery Clock",
-	"press_to_begin": "Press spacebar to begin",
+	"press_to_begin": "Press spacebar or click the button to begin",
 	"settings": {
 		"button": "Settings",
 		"title": "Clock settings",

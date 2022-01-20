@@ -8,6 +8,7 @@
 	h2 {
 		margin: 0;
 		font-size: 10vw;
+		user-select: none;
 
 		span {
 			color: var(--fds-system-attention);

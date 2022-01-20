@@ -19,6 +19,7 @@
 	font-weight: 500;
 	color: currentColor;
 	margin-block-start: 5vh;
+	user-select: none;
 
 	@media (width < 1000px) {
 		font-size: 7.5vw;
@@ -34,6 +35,7 @@
 
 	font-size: 1.5rem;
 	font-weight: 500;
+	user-select: none;
 
 	svg {
 		@include icon($size: 1.5rem);
