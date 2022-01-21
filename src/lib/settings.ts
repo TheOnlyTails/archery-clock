@@ -1,4 +1,5 @@
 import { defaultValue } from "$util/store-utils"
+import { dev } from "$app/env"
 
 /**
  * How much time is given to walk up to the shooting line
@@ -23,4 +24,4 @@ export const ends = defaultValue(10)
 /**
  * Toggles whether each end has 2 parts (AB-CD)
  */
-export const firingRotationType = defaultValue("AB" as "AB" | "ABCD")
+export const firingRotationType = defaultValue<"AB" | "ABCD">(!dev ? "AB" : "ABCD")

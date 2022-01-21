@@ -3,7 +3,7 @@
   import { onMount } from "svelte"
   import { fly } from "svelte/transition"
   import { _ } from "svelte-i18n"
-  import { currentEnd } from "$lib/clock-state"
+  import { currentEnd, isStartingEnd } from "$lib/clock-state"
   import { endLength, ends, firingRotationType, walkupLength, warningTimeUntilEnd } from "$lib/settings"
   import { Info, NextButton } from "$lib"
 
@@ -14,6 +14,11 @@
   let loaded = false
 
   let settingsDialogOpen = false
+
+  const resetClock = () => {
+    $isStartingEnd = true
+    currentEnd.setToDefault()
+  }
 
   onMount(() => {
     loaded = true
@@ -30,8 +35,8 @@
         {@html Settings} {$_("settings.button")}
       </Button>
       <NextButton />
-      {#if $currentEnd > 1}
-        <Button class="reset-button" on:click={() => $currentEnd = 1}>
+      {#if $currentEnd > 1 || !$isStartingEnd}
+        <Button class="reset-button" on:click={resetClock}>
           {@html Reset} {$_("reset_button")}
         </Button>
       {/if}
