@@ -1,6 +1,6 @@
 import { type Writable, writable } from "svelte/store"
 
-type DefaultValueStore<T> = Writable<T> & {
+export type DefaultValueStore<T> = Writable<T> & {
   defaultValue: T,
   setToDefault: () => void
 }

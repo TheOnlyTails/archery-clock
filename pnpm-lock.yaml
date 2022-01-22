@@ -25,7 +25,7 @@ dependencies:
 devDependencies:
   '@fluentui/svg-icons': 1.1.157
   '@sveltejs/adapter-auto': 1.0.0-next.14
-  '@sveltejs/kit': 1.0.0-next.239_sass@1.49.0+svelte@3.46.2
+  '@sveltejs/kit': 1.0.0-next.240_sass@1.49.0+svelte@3.46.2
   autoprefixer: 10.4.2_postcss@8.4.5
   cssnano: 5.0.15_postcss@8.4.5
   fluent-svelte: 1.2.0
@@ -141,8 +141,8 @@ packages:
       esbuild: 0.13.15
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.239_sass@1.49.0+svelte@3.46.2:
-    resolution: { integrity: sha512-+qmiYVdNMmdnjni6/T4sj6yCUf02KvTLpnPZ5yca2grAgMuQkA/sW5Gnce9Zsop0sRKRvM1GY9Pnp8NhERXC6Q== }
+  /@sveltejs/kit/1.0.0-next.240_sass@1.49.0+svelte@3.46.2:
+    resolution: { integrity: sha512-cHdxdSKAdCuty2lYlRHXE4rJZuKd4wur9U63JtPwysTaReMEJl+s9J/LVvyBzaLW/13x8vm/kKqx+DDcI0udlA== }
     engines: { node: '>=14.13' }
     hasBin: true
     peerDependencies:
@@ -262,7 +262,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001301
-      electron-to-chromium: 1.4.50
+      electron-to-chromium: 1.4.51
       escalade: 3.1.1
       node-releases: 2.0.1
       picocolors: 1.0.0
@@ -472,8 +472,8 @@ packages:
       domhandler: 4.3.0
     dev: true
 
-  /electron-to-chromium/1.4.50:
-    resolution: { integrity: sha512-g5X/6oVoqLyzKfsZ1HsJvxKoUAToFMCuq1USbmp/GPIwJDRYV1IEcv+plYTdh6h11hg140hycCBId0vf7rL0+Q== }
+  /electron-to-chromium/1.4.51:
+    resolution: { integrity: sha512-JNEmcYl3mk1tGQmy0EvL5eik/CKSBuzAyGP0QFdG6LIgxQe3II0BL1m2zKc2MZMf3uGqHWE1TFddJML0RpjSHQ== }
     dev: true
 
   /entities/2.2.0:
@@ -1285,8 +1285,8 @@ packages:
     engines: { node: '>=4' }
     dev: true
 
-  /resolve/1.21.1:
-    resolution: { integrity: sha512-lfEImVbnolPuaSZuLQ52cAxPBHeI77sPwCOWRdy12UG/CNa8an7oBHH1R+Fp1/mUqSJi4c8TIP6FOIPSZAUrEQ== }
+  /resolve/1.22.0:
+    resolution: { integrity: sha512-Hhtrw0nLeSrFQ7phPp4OOcVjLPIeMnRlr5mcnVuMe7M/7eBn98A3hmFRLoFo3DLZkivSYwhRUJTyPyWAk56WLw== }
     hasBin: true
     dependencies:
       is-core-module: 2.8.1
@@ -1306,8 +1306,8 @@ packages:
       glob: 7.2.0
     dev: true
 
-  /rollup/2.65.0:
-    resolution: { integrity: sha512-ohZVYrhtVMTqqeqH26sngfMiyGDg6gCUReOsoflXvYpzUkDHp8sVG8F9FQxjs72OfnLWpXP2nNNqQ9I0vkRovA== }
+  /rollup/2.66.0:
+    resolution: { integrity: sha512-L6mKOkdyP8HK5kKJXaiWG7KZDumPJjuo1P+cfyHOJPNNTK3Moe7zCH5+fy7v8pVmHXtlxorzaBjvkBMB23s98g== }
     engines: { node: '>=10.0.0' }
     hasBin: true
     optionalDependencies:
@@ -1577,8 +1577,8 @@ packages:
     dependencies:
       esbuild: 0.13.15
       postcss: 8.4.5
-      resolve: 1.21.1
-      rollup: 2.65.0
+      resolve: 1.22.0
+      rollup: 2.66.0
       sass: 1.49.0
     optionalDependencies:
       fsevents: 2.3.2
