@@ -10,7 +10,7 @@ export const defaultValue = <T>(defaultValue: T) => {
 
   // if the store turns undefined, set it back to the default value
   store.subscribe((val) => {
-    if (!val) store.set(defaultValue)
+    if (val === undefined || val === null) store.set(defaultValue)
   })
 
   return {

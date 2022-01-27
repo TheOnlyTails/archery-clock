@@ -9,6 +9,8 @@
 		"end_length": "End length in seconds (Default: {default})",
 		"walkup_length": "Walkup length in seconds (Default: {default})",
 		"warning_time": "Warning time in seconds before the end of an End (Default: {default})",
+		"beep_volume": "Beep Volume (Default: {default}%)",
+		"reset": "Reset",
 		"done": "Done"
 	},
 	"clock_info": {

@@ -9,6 +9,8 @@
 		"end_length": "אורך סט בשניות (ברירת מחדל: {default})",
 		"walkup_length": "זמן עלייה לקו יורים בשניות (ברירת מחדל: {default})",
 		"warning_time": "זמן אזהרה לפני סוף סט בשניות (ברירת מחזל: {default})",
+		"beep_volume": "עוצמת הצפצוף (ברירת מחדל: {default}%)",
+		"reset": "אפס",
 		"done": "אשר"
 	},
 	"clock_info": {

@@ -4,13 +4,16 @@
   import { fly } from "svelte/transition"
   import { _ } from "svelte-i18n"
   import { currentEnd, isStartingEnd } from "$lib/clock-state"
-  import { endLength, ends, firingRotationType, walkupLength, warningTimeUntilEnd } from "$lib/settings"
+  import { beepVolume, endLength, ends, firingRotationType, walkupLength, warningTimeUntilEnd } from "$lib/settings"
   import { Info, NextButton } from "$lib"
   import type { DefaultValueStore } from "$util/store-utils"
 
-  import { Button, ComboBox, ContentDialog, NumberBox } from "fluent-svelte"
+  import { Button, ComboBox, ContentDialog, NumberBox, Slider } from "fluent-svelte"
   import Settings from "@fluentui/svg-icons/icons/settings_16_regular.svg?raw"
   import Reset from "@fluentui/svg-icons/icons/arrow_counterclockwise_16_regular.svg?raw"
+  import SpeakerSilent from "@fluentui/svg-icons/icons/speaker_0_16_filled.svg?raw"
+  import SpeakerQuiet from "@fluentui/svg-icons/icons/speaker_1_16_filled.svg?raw"
+  import SpeakerLoud from "@fluentui/svg-icons/icons/speaker_2_16_filled.svg?raw"
 
   let loaded = false
 
@@ -47,13 +50,18 @@
       {/if}
     </div>
 
-    <ContentDialog bind:open={settingsDialogOpen} title={$_("settings.title")} class="settings-dialog">
+    <ContentDialog class="settings-dialog"
+                   bind:open={settingsDialogOpen}
+                   title={$_("settings.title")}
+                   size="max"
+    >
       <div class="settings">
         <label for="setting-ends">{insertDefaultValue("settings.ends_per_round", ends)}</label>
         <NumberBox id="setting-ends" bind:value={$ends} min={1} max={50} inline />
 
-        <label
-          for="setting-firing-rotation">{insertDefaultValue("settings.firing_rotation", firingRotationType)}</label>
+        <label for="setting-firing-rotation">
+          {insertDefaultValue("settings.firing_rotation", firingRotationType)}
+        </label>
         <ComboBox id="setting-firing-rotation" items={[{name: "AB"},{name: "ABCD"}]} bind:value={$firingRotationType} />
 
         <label for="setting-end-length">{insertDefaultValue("settings.end_length", endLength)}</label>
@@ -64,8 +72,32 @@
 
         <label for="setting-warning-time">{insertDefaultValue("settings.warning_time", warningTimeUntilEnd)}</label>
         <NumberBox id="setting-warning-time" bind:value={$warningTimeUntilEnd} min={10} max={300} inline />
+
+        <label for="setting-beep-volume">{insertDefaultValue("settings.beep_volume", beepVolume)}</label>
+        <Slider id="setting-beep-volume"
+                bind:value={$beepVolume}
+                min={0} max={100} step={1}
+                ticks={[0, 25, 50, 75, 100]} suffix="%"
+                reverse
+        >
+          <svelte:fragment slot="tooltip" let:value let:suffix>
+            {#if value > 0}
+              {@html value >= 50 ? SpeakerLoud : SpeakerQuiet}
+            {:else}
+              {@html SpeakerSilent}
+            {/if}
+            {value}{suffix}
+          </svelte:fragment>
+        </Slider>
       </div>
-      <Button slot="footer" variant="accent" on:click={() => settingsDialogOpen = false}>{$_("settings.done")}</Button>
+      <svelte:fragment slot="footer">
+        <Button on:click={() => {[
+            ends, firingRotationType, endLength, walkupLength,
+            warningTimeUntilEnd, beepVolume
+          ].forEach(setting => setting.setToDefault())
+        }}>{$_("settings.reset")}</Button>
+        <Button variant="accent" on:click={() => settingsDialogOpen = false}>{$_("settings.done")}</Button>
+      </svelte:fragment>
     </ContentDialog>
 
     <Info />

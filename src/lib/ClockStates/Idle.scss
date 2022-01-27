@@ -19,25 +19,32 @@
 		text-align: center;
 	}
 
-	:global {
-		.buttons {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			gap: 1ch;
-			flex-wrap: wrap;
+	.buttons {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 1ch;
+		flex-wrap: wrap;
 
+		:global {
 			.button { @include button }
 		}
+	}
 
-		.settings-dialog .content-dialog-body .settings {
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-			align-items: center;
-			gap: 1rem;
+	.settings {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		align-items: center;
+		gap: 1rem;
 
-			.combo-box .button .combo-box-label {
-				text-align: start;
+		:global {
+			.slider {
+				direction: ltr;
+
+				.slider-tooltip svg {
+					@include icon($size: 1rem);
+					margin-inline-end: 1ch;
+				}
 			}
 		}
 	}

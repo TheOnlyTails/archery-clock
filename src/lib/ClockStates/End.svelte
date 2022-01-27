@@ -4,7 +4,7 @@
 
   import { changeState, currentEnd, isStartingEnd, nowShooting } from "$lib/clock-state"
   import { endLength, ends, firingRotationType, warningTimeUntilEnd } from "$lib/settings"
-  import { NextButton } from "$lib"
+  import { NextButton, playBeep } from "$lib"
 
   let endTimer = $endLength
   $: endDone = endTimer === 0
@@ -16,7 +16,7 @@
   })
 
 
-  const stopClock = (e: KeyboardEvent) => {
+  const stopClock = async (e: KeyboardEvent) => {
     if (
       e.key === "Enter" ||
       e.key === " " ||
@@ -24,11 +24,11 @@
       e.key === "ArrowLeft"
     ) {
       e.preventDefault()
-      next()
+      await next()
     }
   }
 
-  const next = () => {
+  const next = async () => {
     if (endDone) {
       // if the clock is in ABCD mode and the end is starting, the clock will wait to the end before moving on
       if ($firingRotationType === "AB" || !$isStartingEnd) $currentEnd++
@@ -40,6 +40,7 @@
       endTimer = $warningTimeUntilEnd
     } else {
       endTimer = 0
+      await playBeep(3)
     }
   }
 </script>

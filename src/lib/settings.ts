@@ -25,3 +25,8 @@ export const ends = defaultValue(10)
  * Toggles whether each end has 2 parts (AB-CD)
  */
 export const firingRotationType = defaultValue<"AB" | "ABCD">(!dev ? "AB" : "ABCD")
+
+/**
+ *
+ */
+export const beepVolume = defaultValue(50)

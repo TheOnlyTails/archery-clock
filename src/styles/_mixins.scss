@@ -2,12 +2,14 @@
 	inline-size: $size;
 	block-size: auto;
 	fill: currentColor;
+	user-select: none;
 }
 
 @mixin display {
 	font-size: 20vw;
 	font-weight: 500;
 	margin-block: 1rem;
+	user-select: none;
 
 	@media (width < 1000px) {
 		font-size: 40vw;

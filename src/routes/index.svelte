@@ -13,18 +13,23 @@
 
 <script lang="ts">
   import { changeState, state } from "$lib/clock-state"
-  import { Idle, Walkup, End } from "$lib"
+  import { Idle, Walkup, End, playBeep } from "$lib"
 
   import "fluent-svelte/theme.css"
   import { _ } from "svelte-i18n"
 
   const handleKeys = (e: KeyboardEvent) => {
-    if ($state !== "end" && (
-      e.key === "Enter" ||
-      e.key === " " ||
-      e.key === "ArrowLeft"
-    )) {
+    if ($state !== "end" && (e.key === "Enter" || e.key === " ")) {
       e.preventDefault()
+
+      if ($state === "idle") {
+        // going to walkup
+        playBeep(2)
+      } else if ($state === "walkup") {
+        // starting an end
+        playBeep()
+      }
+
       changeState()
     }
   }
