@@ -13,10 +13,8 @@
   {@html Play} {$_(`next_button.${$state === "idle" ? "start" : "continue"}`)}
 </Button>
 
-<style lang="scss">
+<style global lang="scss">
 	@use "src/styles/mixins" as *;
 
-	:global(.next-button) {
-		@include button;
-	}
+	.next-button { @include button }
 </style>

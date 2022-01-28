@@ -75,10 +75,8 @@
 
         <label for="setting-beep-volume">{insertDefaultValue("settings.beep_volume", beepVolume)}</label>
         <Slider id="setting-beep-volume"
-                bind:value={$beepVolume}
-                min={0} max={100} step={1}
-                ticks={[0, 25, 50, 75, 100]} suffix="%"
-                reverse
+                bind:value={$beepVolume} suffix="%"
+                min={0} max={100} step={1} ticks={[0, 25, 50, 75, 100]}
         >
           <svelte:fragment slot="tooltip" let:value let:suffix>
             {#if value > 0}
