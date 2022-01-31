@@ -1,8 +1,8 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@fluentui/svg-icons': ^1.1.157
-  '@sveltejs/adapter-auto': next
+  '@fluentui/svg-icons': ^1.1.158
+  '@sveltejs/adapter-auto': 1.0.0-next.18
   '@sveltejs/kit': next
   autoprefixer: ^10.4.2
   cssnano: ^5.0.16
@@ -13,7 +13,7 @@ specifiers:
   prettier-plugin-svelte: ^2.6.0
   sass: ^1.49.0
   svelte: ^3.46.3
-  svelte-check: ^2.3.0
+  svelte-check: ^2.4.1
   svelte-i18n: ^3.3.13
   svelte-preprocess: ^4.10.2
   ts-audio: ^0.6.1
@@ -24,9 +24,9 @@ dependencies:
   svelte-i18n: 3.3.13_svelte@3.46.3
 
 devDependencies:
-  '@fluentui/svg-icons': 1.1.157
-  '@sveltejs/adapter-auto': 1.0.0-next.17
-  '@sveltejs/kit': 1.0.0-next.248_sass@1.49.0+svelte@3.46.3
+  '@fluentui/svg-icons': 1.1.158
+  '@sveltejs/adapter-auto': 1.0.0-next.18
+  '@sveltejs/kit': 1.0.0-next.251_sass@1.49.0+svelte@3.46.3
   autoprefixer: 10.4.2_postcss@8.4.5
   cssnano: 5.0.16_postcss@8.4.5
   fluent-svelte: 1.3.0
@@ -36,7 +36,7 @@ devDependencies:
   prettier-plugin-svelte: 2.6.0_prettier@2.5.1+svelte@3.46.3
   sass: 1.49.0
   svelte: 3.46.3
-  svelte-check: 2.3.0_1f8751fd082d024705883b13a54d5012
+  svelte-check: 2.4.1_1f8751fd082d024705883b13a54d5012
   svelte-preprocess: 4.10.2_648a10b5fb26cabbc745b0700858c860
   ts-audio: 0.6.1
   tslib: 2.3.1
@@ -44,8 +44,8 @@ devDependencies:
 
 packages:
 
-  /@fluentui/svg-icons/1.1.157:
-    resolution: {integrity: sha512-MwozRJNy438VwSq4KZ2en+vAEbQM6JONknt6TJsWYyK2jkMea2s2T5iqv/1Pr+s9PObZ+m91YgSbV5q1YFO9YQ==}
+  /@fluentui/svg-icons/1.1.158:
+    resolution: {integrity: sha512-G/F2RTWDqcKQqf4BvKSd9Kd4AXuckuYhH0yFXICrBZuTz6sPm9owsupFg/XyIFYPSe/T2jUx4Ry0qQM/uKcRMA==}
     dev: true
 
   /@formatjs/ecma402-abstract/1.11.2:
@@ -115,12 +115,12 @@ packages:
       picomatch: 2.3.1
     dev: true
 
-  /@sveltejs/adapter-auto/1.0.0-next.17:
-    resolution: {integrity: sha512-jLMh+5whg9uSJkvAYyVhi4z4GpqWxSR/XhhFCUqDMYN2hMTGCBaB4ReUAHSYIFw3IPV7m318z9igXriOaL6agQ==}
+  /@sveltejs/adapter-auto/1.0.0-next.18:
+    resolution: {integrity: sha512-hf+oWFhdCsID+0CpjbHD01yH0LFuHsuTUYWYtNDgBdbuG8oxiocah+xns5npRRvmAmzMG2kqeaKFnJkEnMSIBA==}
     dependencies:
       '@sveltejs/adapter-cloudflare': 1.0.0-next.9
       '@sveltejs/adapter-netlify': 1.0.0-next.44
-      '@sveltejs/adapter-vercel': 1.0.0-next.39
+      '@sveltejs/adapter-vercel': 1.0.0-next.40
     dev: true
 
   /@sveltejs/adapter-cloudflare/1.0.0-next.9:
@@ -137,14 +137,14 @@ packages:
       tiny-glob: 0.2.9
     dev: true
 
-  /@sveltejs/adapter-vercel/1.0.0-next.39:
-    resolution: {integrity: sha512-YOPGKIILm26h22GN4/iliXce61aTG3Dq5hX8xpDx0cNuCocv0OoLfIqiGpdyJ9NIMpjwXmpVoL4+nV+yh2wcSA==}
+  /@sveltejs/adapter-vercel/1.0.0-next.40:
+    resolution: {integrity: sha512-HJkfjP+tN0r+3tQZofSN6tCE/60fiIDg5dA7+SD4tNio1DADE1W5YhUZGvMQkjOe8kTSKE8/BdgLbwrqeLmDKg==}
     dependencies:
       esbuild: 0.13.15
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.248_sass@1.49.0+svelte@3.46.3:
-    resolution: {integrity: sha512-AJ3I8jLyHM3wWiJ9ymb7KNHhuASO+k9K2+yLDTwVOnOJy4UFyEu7x6Oz/Kn/cd+dBbUHjgjs2Acr275aFGhj1Q==}
+  /@sveltejs/kit/1.0.0-next.251_sass@1.49.0+svelte@3.46.3:
+    resolution: {integrity: sha512-7GtUrUHqOa7ISo86PlICcMKcfGodOZwP9p7hXnN4t1yMWIQD2eKZlJffvnwx1X+NMcJ8hLChgcjGYjc1xZABhQ==}
     engines: {node: '>=14.13'}
     hasBin: true
     peerDependencies:
@@ -219,7 +219,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.19.1
-      caniuse-lite: 1.0.30001303
+      caniuse-lite: 1.0.30001304
       fraction.js: 4.1.2
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -259,7 +259,7 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001303
+      caniuse-lite: 1.0.30001304
       electron-to-chromium: 1.4.57
       escalade: 3.1.1
       node-releases: 2.0.1
@@ -279,13 +279,13 @@ packages:
     resolution: {integrity: sha512-bsTwuIg/BZZK/vreVTYYbSWoe2F+71P7K5QGEX+pT250DZbfU1MQ5prOKpPR+LL6uWKK3KMwMCAS74QB3Um1uw==}
     dependencies:
       browserslist: 4.19.1
-      caniuse-lite: 1.0.30001303
+      caniuse-lite: 1.0.30001304
       lodash.memoize: 4.1.2
       lodash.uniq: 4.5.0
     dev: true
 
-  /caniuse-lite/1.0.30001303:
-    resolution: {integrity: sha512-/Mqc1oESndUNszJP0kx0UaQU9kEv9nNtJ7Kn8AdA0mNnH8eR1cj0kG+NbNuC1Wq/b21eA8prhKRA3bbkjONegQ==}
+  /caniuse-lite/1.0.30001304:
+    resolution: {integrity: sha512-bdsfZd6K6ap87AGqSHJP/s1V+U6Z5lyrcbBu3ovbCCf8cSYpwTtGrCBObMpJqwxfTbLW6YTIdbb1jEeTelcpYQ==}
     dev: true
 
   /chokidar/3.5.3:
@@ -1396,8 +1396,8 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /svelte-check/2.3.0_1f8751fd082d024705883b13a54d5012:
-    resolution: {integrity: sha512-SBKdJyUmxzPmJf/ZPqDSQOoa9JzOcgEpV7u3UaYcgVn7fA0veZ3FA5JgLU8KYtf84Gp6guBVcrC7XKLjJa5SXQ==}
+  /svelte-check/2.4.1_1f8751fd082d024705883b13a54d5012:
+    resolution: {integrity: sha512-xhf3ShP5rnRwBokrgTBJ/0cO9QIc1DAVu1NWNRTfCDsDBNjGmkS3HgitgUadRuoMKj1+irZR/yHJ+Uqobnkbrw==}
     hasBin: true
     peerDependencies:
       svelte: ^3.24.0
