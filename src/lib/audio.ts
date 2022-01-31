@@ -1,8 +1,14 @@
 import { get } from "svelte/store"
 import { beepVolume } from "$lib/settings"
 
-export const beep = new Audio("/beep.wav")
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
+export const beep = (() => {
+  const audio = new HTMLAudioElement()
+  audio.src = "/beep.wav"
+
+  return audio
+})()
+
+const sleep = (ms: number) => new Promise<void>(resolve => setTimeout(resolve, ms))
 
 export const playBeep = async (times: number = 1) => {
   beep.volume = get(beepVolume) / 100
