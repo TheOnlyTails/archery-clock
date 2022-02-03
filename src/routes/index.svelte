@@ -13,7 +13,7 @@
 
 <script lang="ts">
   import { changeState, state } from "$lib/clock-state"
-  import { Idle, Walkup, End, playBeep } from "$lib"
+  import { Idle, Walkup, End, beepAudio } from "$lib"
 
   import "fluent-svelte/theme.css"
   import { _ } from "svelte-i18n"
@@ -24,10 +24,10 @@
 
       if ($state === "idle") {
         // going to walkup
-        playBeep(2)
+        beepAudio.playBeep(2)
       } else if ($state === "walkup") {
         // starting an end
-        playBeep()
+        beepAudio.playBeep()
       }
 
       changeState()
