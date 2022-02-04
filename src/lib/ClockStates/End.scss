@@ -12,12 +12,15 @@
 
 	&.warning {
 		background: hsl(36, 100%, 51%);
-		color: hsla(0, 0%, 0%, 89.56%);
 	}
 
 	&.done {
 		background: hsl(120, 78%, 27%);
 		color: currentColor;
+	}
+
+	&.paused {
+		background: hsl(5, 100%, 44%);
 	}
 
 	h1 {
@@ -26,5 +29,24 @@
 
 	p {
 		@include display;
+	}
+
+	.buttons {
+		display: flex;
+		gap: 1rem;
+		align-items: center;
+
+		:global {
+			.stop-button {
+				@include button;
+				background: hsl(5, 100%, 44%);
+				border: 2px solid hsl(0, 0%, 0%, 5.78%);
+
+				&.paused {
+					background: hsl(120, 78%, 27%);
+					color: white;
+				}
+			}
+		}
 	}
 }

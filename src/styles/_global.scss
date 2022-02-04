@@ -1,3 +1,5 @@
+@use "mixins" as *;
+
 html[lang="he"], html[lang="ar"] { // this was surprisingly easy
 	direction: rtl;
 }
@@ -12,4 +14,8 @@ body {
 
 main {
 	margin-block-end: 0;
+}
+
+.button:not(.settings-footer-button), .button.style-accent:not(.settings-footer-button) {
+	@include button;
 }

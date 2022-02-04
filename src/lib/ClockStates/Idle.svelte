@@ -89,12 +89,12 @@
         </Slider>
       </div>
       <svelte:fragment slot="footer">
-        <Button on:click={() => {[
+        <Button class="settings-footer-button" on:click={() => {[
             ends, firingRotationType, endLength, walkupLength,
             warningTimeUntilEnd, beepVolume
           ].forEach(setting => setting.setToDefault())
         }}>{$_("settings.reset")}</Button>
-        <Button variant="accent" on:click={() => settingsDialogOpen = false}>{$_("settings.done")}</Button>
+        <Button class="settings-footer-button" variant="accent" on:click={() => settingsDialogOpen = false}>{$_("settings.done")}</Button>
       </svelte:fragment>
     </ContentDialog>
 

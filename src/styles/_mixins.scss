@@ -35,11 +35,12 @@
 
 	padding: 1ch;
 
-	font-size: 1.5rem;
+	font-size: var(--fds-subtitle-font-size);
 	font-weight: 500;
 	user-select: none;
+	cursor: pointer;
 
 	svg {
-		@include icon($size: 1.5rem);
+		@include icon($size: var(--fds-subtitle-font-size));
 	}
 }

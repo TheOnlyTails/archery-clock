@@ -16,9 +16,3 @@
 <Button class="next-button" on:click={handleClick} on:click variant="accent">
   {@html Play} {$_(`next_button.${$state === "idle" ? "start" : "continue"}`)}
 </Button>
-
-<style global lang="scss">
-	@use "src/styles/mixins" as *;
-
-	.next-button { @include button }
-</style>

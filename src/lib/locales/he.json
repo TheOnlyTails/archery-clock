@@ -25,7 +25,11 @@
 	},
 	"next_button": {
 		"start": "התחל",
-		"continue": "המשך"
+		"continue": "הבא"
 	},
-	"reset_button": "אפס"
+	"reset_button": "אפס",
+	"stop_button": {
+		"pause": "חדל",
+		"continue": "המשך"
+	}
 }

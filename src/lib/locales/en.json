@@ -25,7 +25,11 @@
 	},
 	"next_button": {
 		"start": "Start",
-		"continue": "Continue"
+		"continue": "Next"
 	},
-	"reset_button": "Reset"
+	"reset_button": "Reset",
+	"stop_button": {
+		"pause": "Stop",
+		"continue": "Continue"
+	}
 }
