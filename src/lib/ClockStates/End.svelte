@@ -24,8 +24,7 @@
     if (
       e.key === "Enter" ||
       e.key === " " ||
-      e.key === "Tab" ||
-      e.key === "ArrowLeft"
+      e.key === "Tab"
     ) {
       e.preventDefault()
       // manually skip to the next part

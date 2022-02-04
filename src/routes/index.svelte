@@ -19,7 +19,7 @@
   import { _ } from "svelte-i18n"
 
   const handleKeys = (e: KeyboardEvent) => {
-    if ($state !== "end" && (e.key === "Enter" || e.key === " ")) {
+    if ($state !== "end" && (e.key === "Enter" || e.key === " " || e.key === "Tab")) {
       e.preventDefault()
 
       if ($state === "idle") {
