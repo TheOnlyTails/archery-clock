@@ -3,9 +3,13 @@
   import { Button } from "fluent-svelte"
   import Play from "@fluentui/svg-icons/icons/play_16_regular.svg?raw"
   import { _ } from "svelte-i18n"
+  import { beepAudio } from "$lib/audio"
 
   const handleClick = () => {
-    if ($state !== "end") changeState()
+    if ($state !== "end") {
+      beepAudio.playBeep($state === "idle" ? 2 : 1)
+      changeState()
+    }
   }
 </script>
 
