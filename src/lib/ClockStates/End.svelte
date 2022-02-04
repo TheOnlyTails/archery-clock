@@ -53,8 +53,6 @@
         await beepAudio.playBeep(2)
         $state = "walkup"
       }
-    } else if (endTimer > $warningTimeUntilEnd) {
-      endTimer = $warningTimeUntilEnd
     } else {
       endTimer = 0
     }
