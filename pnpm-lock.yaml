@@ -16,7 +16,6 @@ specifiers:
   svelte-check: ^2.4.2
   svelte-i18n: ^3.3.13
   svelte-preprocess: ^4.10.2
-  ts-audio: ^0.6.1
   tslib: ^2.3.1
   typescript: ^4.5.5
 
@@ -38,7 +37,6 @@ devDependencies:
   svelte: 3.46.4
   svelte-check: 2.4.2_a2200ece6a8fd4bd0dc64868118ff98a
   svelte-preprocess: 4.10.2_11a9328bd431abdae359632661912988
-  ts-audio: 0.6.1
   tslib: 2.3.1
   typescript: 4.5.5
 
@@ -219,7 +217,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.19.1
-      caniuse-lite: 1.0.30001306
+      caniuse-lite: 1.0.30001307
       fraction.js: 4.1.2
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -259,7 +257,7 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001306
+      caniuse-lite: 1.0.30001307
       electron-to-chromium: 1.4.64
       escalade: 3.1.1
       node-releases: 2.0.1
@@ -279,13 +277,13 @@ packages:
     resolution: {integrity: sha512-bsTwuIg/BZZK/vreVTYYbSWoe2F+71P7K5QGEX+pT250DZbfU1MQ5prOKpPR+LL6uWKK3KMwMCAS74QB3Um1uw==}
     dependencies:
       browserslist: 4.19.1
-      caniuse-lite: 1.0.30001306
+      caniuse-lite: 1.0.30001307
       lodash.memoize: 4.1.2
       lodash.uniq: 4.5.0
     dev: true
 
-  /caniuse-lite/1.0.30001306:
-    resolution: {integrity: sha512-Wd1OuggRzg1rbnM5hv1wXs2VkxJH/AA+LuudlIqvZiCvivF+wJJe2mgBZC8gPMgI7D76PP5CTx8Luvaqc1V6OQ==}
+  /caniuse-lite/1.0.30001307:
+    resolution: {integrity: sha512-+MXEMczJ4FuxJAUp0jvAl6Df0NI/OfW1RWEE61eSmzS7hw6lz4IKutbhbXendwq8BljfFuHtu26VWsg4afQ7Ng==}
     dev: true
 
   /chokidar/3.5.3:
@@ -1539,11 +1537,6 @@ packages:
     engines: {node: '>=8.0'}
     dependencies:
       is-number: 7.0.0
-    dev: true
-
-  /ts-audio/0.6.1:
-    resolution: {integrity: sha512-pV+2IYrg9x2eP9OmXCYej2ja5fF8mwiflz6rtYwJbo5GFnRHkzPBQs5fgpdiTi+2IoY3Fu4JMdd8o0zaZNo4tw==}
-    engines: {node: '>=10'}
     dev: true
 
   /tslib/2.3.1:

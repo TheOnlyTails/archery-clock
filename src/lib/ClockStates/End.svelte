@@ -2,7 +2,7 @@
 	import { onMount } from "svelte"
 	import { _ } from "svelte-i18n"
 
-	import { changeState, currentEnd, isStartingEnd, nowShooting } from "$lib/clock-state"
+	import { changeState, currentEnd, isStartingEnd, nowShooting, state } from "$lib/clock-state"
 	import { endLength, ends, firingRotationType, warningTimeUntilEnd } from "$lib/settings"
 	import { NextButton, beepAudio } from "$lib"
 
@@ -30,12 +30,20 @@
 
 	const next = async () => {
 		if (endDone) {
-			// if the clock is in ABCD mode and the end is starting, the clock will wait to the end before moving on
-			if ($firingRotationType === "AB" || !$isStartingEnd) $currentEnd++
+			const currentIsStartingEnd = $isStartingEnd
 
 			$isStartingEnd = !$isStartingEnd
 
-			changeState()
+			// if the clock is in ABCD mode and the end is starting, the clock will wait to the end before moving on
+			if ($firingRotationType === "AB" || !currentIsStartingEnd) $currentEnd++
+
+			// if the rotation type is AB, or the end is ending, move on to the idle state
+			if ($firingRotationType === "AB" || !currentIsStartingEnd) changeState()
+			// if it's ABCD and starting an end, go straight to walkup
+			else {
+				await beepAudio.playBeep(2)
+				$state = "walkup"
+			}
 		} else if (endTimer > $warningTimeUntilEnd) {
 			endTimer = $warningTimeUntilEnd
 		} else {
