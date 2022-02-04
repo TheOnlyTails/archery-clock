@@ -10,6 +10,7 @@
 
   let endTimer = $endLength
   $: endDone = endTimer === 0
+  $: if (endDone) beepAudio.playBeep(3)
 
   let paused = false
 
@@ -56,7 +57,6 @@
       endTimer = $warningTimeUntilEnd
     } else {
       endTimer = 0
-      await beepAudio.playBeep(3)
     }
   }
 

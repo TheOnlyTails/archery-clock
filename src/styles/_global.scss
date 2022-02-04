@@ -16,6 +16,9 @@ main {
 	margin-block-end: 0;
 }
 
-.button:not(.settings-footer-button), .button.style-accent:not(.settings-footer-button) {
-	@include button;
+.button,
+.button.style-accent {
+	&:not(.settings-footer-button):not(.combo-box-button) {
+		@include button;
+	}
 }

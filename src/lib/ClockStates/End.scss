@@ -5,7 +5,7 @@
 	align-items: center;
 	flex-direction: column;
 
-	background: hsl(209, 100%, 36%);
+	background: hsl(120, 78%, 27%);
 	color: white;
 	inline-size: 100%;
 	block-size: 100vh;
@@ -15,7 +15,7 @@
 	}
 
 	&.done {
-		background: hsl(120, 78%, 27%);
+		background: hsl(5, 100%, 44%);
 		color: currentColor;
 	}
 

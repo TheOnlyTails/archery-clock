@@ -94,7 +94,8 @@
             warningTimeUntilEnd, beepVolume
           ].forEach(setting => setting.setToDefault())
         }}>{$_("settings.reset")}</Button>
-        <Button class="settings-footer-button" variant="accent" on:click={() => settingsDialogOpen = false}>{$_("settings.done")}</Button>
+        <Button class="settings-footer-button" variant="accent"
+                on:click={() => settingsDialogOpen = false}>{$_("settings.done")}</Button>
       </svelte:fragment>
     </ContentDialog>
 

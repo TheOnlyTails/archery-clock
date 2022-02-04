@@ -3,7 +3,7 @@
   import { changeState } from "$lib/clock-state"
   import { walkupLength } from "$lib/settings"
   import { _ } from "svelte-i18n"
-  import { NextButton } from "$lib"
+  import { beepAudio, NextButton } from "$lib"
 
   /**
    * number of seconds during walkup
@@ -14,7 +14,11 @@
     setInterval(() => walkupTimer--, 1000)
   })
 
-  $: if (walkupTimer <= 0) changeState()
+  $: if (walkupTimer <= 0) {
+    // move to end
+    beepAudio.playBeep()
+    changeState()
+  }
 </script>
 
 <main class="walkup">
