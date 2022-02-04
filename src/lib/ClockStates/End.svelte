@@ -9,14 +9,14 @@
   import Pause from "@fluentui/svg-icons/icons/pause_16_regular.svg?raw"
 
   let endTimer = $endLength
-  $: endDone = endTimer === 0
-  $: if (endDone) beepAudio.playBeep(3)
-
   let paused = false
+
+  $: if (endTimer === 0) (async () => await next())()
 
   onMount(() => {
     setInterval(() => {
-      if (!endDone && !paused) endTimer--
+      // count down until 0 while the timer isn't paused
+      if (endTimer !== 0 && !paused) endTimer--
     }, 1000)
   })
 
@@ -28,33 +28,43 @@
       e.key === "ArrowLeft"
     ) {
       e.preventDefault()
+      // manually skip to the next part
       await next()
     }
   }
 
   const next = async () => {
+    // if the timer is paused, unpause it
     if (paused) {
       paused = false
       return
     }
 
-    if (endDone) {
-      const currentIsStartingEnd = $isStartingEnd
+    // increase the end counter
+    const goToIdle = async () => {
+      $isStartingEnd = true
+      $currentEnd++
+      await beepAudio.playBeep(3)
+      changeState()
+    }
 
-      $isStartingEnd = !$isStartingEnd
+    const goToWalkup = async () => {
+      $isStartingEnd = false
+      await beepAudio.playBeep(2)
+      $state = "walkup"
+    }
 
-      // if the clock is in ABCD mode and the end is starting, the clock will wait to the end before moving on
-      if ($firingRotationType === "AB" || !currentIsStartingEnd) $currentEnd++
-
-      // if the rotation type is AB, or the end is ending, move on to the idle state
-      if ($firingRotationType === "AB" || !currentIsStartingEnd) changeState()
-      // if it's ABCD and starting an end, go straight to walkup
-      else {
-        await beepAudio.playBeep(2)
-        $state = "walkup"
+    if ($firingRotationType === "ABCD") {
+      if ($isStartingEnd) {
+        // if the end is in its first part, go to walkup
+        await goToWalkup()
+      } else {
+        // if it's not, go to idle
+        await goToIdle()
       }
     } else {
-      endTimer = 0
+      // if the rotation type is AB, we can skip straight ahead
+      await goToIdle()
     }
   }
 
@@ -66,12 +76,12 @@
 
 <svelte:window on:keydown={stopClock} />
 
-<main class="end" class:paused class:done={endTimer === 0} class:warning={endTimer <= $warningTimeUntilEnd}>
+<main class="end" class:paused class:warning={endTimer <= $warningTimeUntilEnd}>
   <h1>{$_("end.title", { values: { current: $currentEnd, total: $ends, abcd: $nowShooting } })}</h1>
   <p>{!paused ? endTimer : "STOP"}</p>
   <div class="buttons">
     <NextButton on:click={next} />
-    {#if !endDone}
+    {#if endTimer !== 0}
       <Button class="stop-button {paused ? 'paused' : ''}" on:click={stop}>
         {@html Pause}
         {$_(`stop_button.${!paused ? "pause" : "continue"}`)}
