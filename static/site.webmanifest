@@ -1,0 +1,15 @@
+{
+	"name": "Archery Clock",
+	"short_name": "Archery Clock",
+	"start_url": ".",
+	"display": "fullscreen",
+	"description": "A minimal archery clock for timing ends.",
+	"background_color": "#F2F2F2",
+	"icons": [
+		{
+			"src": "favicon.png",
+			"sizes": "128x128",
+			"type": "image/png"
+		}
+	]
+}
