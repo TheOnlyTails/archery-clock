@@ -12,7 +12,7 @@ export const beepAudio: { beep: HTMLAudioElement | undefined, playBeep: (times?:
         timesPlayed++
         await sleep(50)
 
-        if (timesPlayed < times) {
+        if (beepAudio.beep && timesPlayed < times) {
           await beepAudio.beep.play()
         }
       }

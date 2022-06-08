@@ -2,8 +2,8 @@ import adapter from "@sveltejs/adapter-auto"
 import preprocess from "svelte-preprocess"
 import autoprefixer from "autoprefixer"
 import cssnano from "cssnano"
+// @ts-ignore
 import mediaMinmax from "postcss-media-minmax"
-import * as path from "path"
 
 /** @type {import("@sveltejs/kit").Config} */
 const config = {
@@ -11,20 +11,16 @@ const config = {
   // for more information about preprocessors
   preprocess: preprocess({
     postcss: {
-      plugins: [autoprefixer, cssnano, mediaMinmax],
-    },
+      plugins: [autoprefixer(), cssnano(), mediaMinmax()]
+    }
   }),
 
   kit: {
     adapter: adapter(),
-    vite: {
-      resolve: {
-        alias: {
-          $util: path.resolve("./src/lib/util"),
-        },
-      },
-    },
-  },
+    alias: {
+      $util: "src/lib/util"
+    }
+  }
 }
 
 export default config

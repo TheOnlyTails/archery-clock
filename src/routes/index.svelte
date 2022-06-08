@@ -7,7 +7,7 @@
     i18n()
     waitLocale()
 
-    return { props: {} }
+    return {}
   }
 </script>
 

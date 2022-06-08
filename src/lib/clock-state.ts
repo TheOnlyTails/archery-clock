@@ -33,7 +33,7 @@ export const nowShooting: Readable<FiringRotation> = derived([currentEnd, isStar
  * @param {ClockState} state
  * @returns {ClockState}
  */
-export const nextState: (ClockState) => ClockState = (state: ClockState) => {
+export const nextState = (state: ClockState): ClockState => {
   switch (state) {
     case "idle":
       return "walkup"

@@ -5,8 +5,8 @@
   import { changeState, currentEnd, isStartingEnd, nowShooting, state } from "$lib/clock-state"
   import { endLength, ends, firingRotationType, warningTimeUntilEnd } from "$lib/settings"
   import { NextButton, beepAudio } from "$lib"
-  import { Button } from "fluent-svelte"
-  import Pause from "@fluentui/svg-icons/icons/pause_16_regular.svg?raw"
+  import { Button, TextBlock } from "fluent-svelte"
+  import Pause from "@fluentui/svg-icons/icons/warning_16_regular.svg?raw"
 
   let endTimer = $endLength
   let paused = false
@@ -77,7 +77,8 @@
 
 <main class="end" class:paused class:warning={endTimer <= $warningTimeUntilEnd}>
   <h1>{$_("end.title", { values: { current: $currentEnd, total: $ends, abcd: $nowShooting } })}</h1>
-  <p>{!paused ? endTimer : "STOP"}</p>
+  <p class="end-display">{!paused ? endTimer : "STOP"}</p>
+  <TextBlock variant="subtitle">Press space to continue</TextBlock>
   <div class="buttons">
     <NextButton on:click={next} />
     {#if endTimer !== 0}

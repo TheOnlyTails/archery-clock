@@ -25,7 +25,7 @@
   }
 
   const insertDefaultValue = <T>(id: string, store: DefaultValueStore<T>) => $_(id, {
-    values: { default: store.defaultValue },
+    values: { default: store.defaultValue }
   })
 
   onMount(() => {
@@ -62,7 +62,10 @@
         <label for="setting-firing-rotation">
           {insertDefaultValue("settings.firing_rotation", firingRotationType)}
         </label>
-        <ComboBox id="setting-firing-rotation" items={[{name: "AB"},{name: "ABCD"}]} bind:value={$firingRotationType} />
+        <ComboBox id="setting-firing-rotation" items={[
+          { name: "AB", value: "AB", },
+          { name: "ABCD", value: "ABCD", }
+        ]} bind:value={$firingRotationType} />
 
         <label for="setting-end-length">{insertDefaultValue("settings.end_length", endLength)}</label>
         <NumberBox id="setting-end-length" bind:value={$endLength} min={10} max={3600} inline />
