@@ -14,8 +14,10 @@ export const defaultValue = <T>(defaultValue: T) => {
   })
 
   return {
-    defaultValue: defaultValue,
-    setToDefault: () => store.set(defaultValue),
+    setToDefault() {
+      store.set(defaultValue)
+    },
+    defaultValue,
     ...store,
   } as DefaultValueStore<T>
 }

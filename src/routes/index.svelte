@@ -3,6 +3,8 @@
   import { waitLocale } from "svelte-i18n"
   import i18n from "$lib/locales/i18n"
 
+  export const router = false
+
   export const load: Load = () => {
     i18n()
     waitLocale()

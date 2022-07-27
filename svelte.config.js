@@ -2,7 +2,6 @@ import adapter from "@sveltejs/adapter-auto"
 import preprocess from "svelte-preprocess"
 import autoprefixer from "autoprefixer"
 import cssnano from "cssnano"
-// @ts-ignore
 import mediaMinmax from "postcss-media-minmax"
 
 /** @type {import("@sveltejs/kit").Config} */
@@ -17,6 +16,9 @@ const config = {
 
   kit: {
     adapter: adapter(),
+    prerender: {
+      default: true
+    },
     alias: {
       $util: "src/lib/util"
     }
