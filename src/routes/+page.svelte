@@ -1,16 +1,18 @@
 <script context="module" lang="ts">
-  import type { Load } from "@sveltejs/kit"
-  import { waitLocale } from "svelte-i18n"
-  import i18n from "$lib/locales/i18n"
+  throw new Error("@migration task: Check code was safely removed (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292722)");
 
-  export const router = false
+  // import type { Load } from "@sveltejs/kit"
+  // import { waitLocale } from "svelte-i18n"
+  // import i18n from "$lib/locales/i18n"
 
-  export const load: Load = () => {
-    i18n()
-    waitLocale()
+  // export const router = false
 
-    return {}
-  }
+  // export const load: Load = () => {
+  //   i18n()
+  //   waitLocale()
+
+  //   return {}
+  // }
 </script>
 
 <script lang="ts">
