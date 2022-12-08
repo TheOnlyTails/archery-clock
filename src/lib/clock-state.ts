@@ -1,11 +1,10 @@
 import { derived, get, type Readable, writable } from "svelte/store"
 import { ends, firingRotationType } from "$lib/settings"
 import { defaultValue } from "$util/store-utils"
+import { goto } from "$app/navigation"
+import type { Page } from "@sveltejs/kit"
 
-export type ClockState = "idle" | "walkup" | "end"
 export type FiringRotation = "AB" | "CD"
-
-export const state = defaultValue<ClockState>("idle")
 
 export const currentEnd = defaultValue(1)
 currentEnd.subscribe((value) => {
@@ -27,23 +26,17 @@ export const nowShooting: Readable<FiringRotation> = derived([currentEnd, isStar
   },
 )
 
-/**
- * Get the next clock state
- *
- * @param {ClockState} state
- * @returns {ClockState}
- */
-export const nextState = (state: ClockState): ClockState => {
-  switch (state) {
-    case "idle":
-      return "walkup"
-    case "walkup":
-      return "end"
-    case "end":
-      return "idle"
+export const nextState = (current: Page): string => {
+  switch (current.route.id) {
+    case "/":
+      return "/walkup"
+    case "/walkup":
+      return "/end"
+    default:
+      return "/"
   }
 }
 /**
  * Update the clock state with the next state
  */
-export const changeState = () => state.update((s) => nextState(s))
+export const changeState = (current: Page) => goto(nextState(current))

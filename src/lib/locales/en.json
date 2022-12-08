@@ -4,12 +4,12 @@
 	"settings": {
 		"button": "Settings",
 		"title": "Clock settings",
-		"ends_per_round": "Ends per round (Default: {default})",
-		"firing_rotation": "Firing Rotation (Default: {default})",
-		"end_length": "End length in seconds (Default: {default})",
-		"walkup_length": "Walkup length in seconds (Default: {default})",
-		"warning_time": "Warning time in seconds before the end of an End (Default: {default})",
-		"beep_volume": "Beep Volume (Default: {default}%)",
+		"ends_per_round": "Ends per Round",
+		"firing_rotation": "Firing Rotation",
+		"end_length": "End Length",
+		"walkup_length": "Walkup Length",
+		"warning_time": "End Warning Time",
+		"beep_volume": "Beep Volume",
 		"reset": "Reset",
 		"done": "Done"
 	},
@@ -29,7 +29,7 @@
 	},
 	"reset_button": "Reset",
 	"stop_button": {
-		"pause": "Stop",
-		"continue": "Continue"
+		"pause": "Danger",
+		"continue": "All Good"
 	}
 }

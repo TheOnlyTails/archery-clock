@@ -1,17 +1,20 @@
 <script lang="ts">
   import { onMount } from "svelte"
   import { _ } from "svelte-i18n"
+  import { page } from "$app/stores"
 
-  import { changeState, currentEnd, isStartingEnd, nowShooting, state } from "$lib/clock-state"
+  import { changeState, currentEnd, isStartingEnd, nowShooting } from "$lib/clock-state"
   import { endLength, ends, firingRotationType, warningTimeUntilEnd } from "$lib/settings"
   import { NextButton, beepAudio } from "$lib"
   import { Button, TextBlock } from "fluent-svelte"
+
   import Pause from "@fluentui/svg-icons/icons/warning_16_regular.svg?raw"
+  import { goto } from "$app/navigation";
 
   let endTimer = $endLength
   let paused = false
 
-  $: if (endTimer === 0) (async () => await next())()
+  $: if (endTimer === 0) next()
 
   onMount(() => {
     setInterval(() => {
@@ -21,18 +24,14 @@
   })
 
   const stopClock = async (e: KeyboardEvent) => {
-    if (
-      e.key === "Enter" ||
-      e.key === " " ||
-      e.key === "Tab"
-    ) {
+    if (e.key === "Enter" || e.key === " " || e.key === "Tab") {
       e.preventDefault()
       // manually skip to the next part
-      await next()
+      next()
     }
   }
 
-  const next = async () => {
+  const next = () => {
     // if the timer is paused, unpause it
     if (paused) {
       paused = false
@@ -43,33 +42,27 @@
     const goToIdle = async () => {
       $isStartingEnd = true
       $currentEnd++
-      await beepAudio.playBeep(3)
-      changeState()
+      beepAudio.playBeep(3)
+      changeState($page)
     }
 
-    const goToWalkup = async () => {
+    const goToWalkup = () => {
       $isStartingEnd = false
-      await beepAudio.playBeep(2)
-      $state = "walkup"
+      beepAudio.playBeep(2)
+      goto("/walkup")
     }
 
     if ($firingRotationType === "ABCD") {
-      if ($isStartingEnd) {
-        // if the end is in its first part, go to walkup
-        await goToWalkup()
-      } else {
-        // if it's not, go to idle
-        await goToIdle()
-      }
-    } else {
-      // if the rotation type is AB, we can skip straight ahead
-      await goToIdle()
-    }
+      // if the end is in its first part, go to walkup
+      // if it's not, go to idle
+      if ($isStartingEnd) goToWalkup()
+      else goToIdle()
+    } else goToIdle() // if the rotation type is AB, we can skip straight ahead
   }
 
-  const stop = async () => {
+  const stop = () => {
     paused = !paused
-    if (paused) await beepAudio.playBeep(5)
+    if (paused) beepAudio.playBeep(5)
   }
 </script>
 
@@ -91,5 +84,5 @@
 </main>
 
 <style lang="scss">
-	@use "./End";
+  @use "src/styles/pages/End";
 </style>

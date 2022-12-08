@@ -1,5 +1,5 @@
 import { defaultValue } from "$util/store-utils"
-import { dev } from "$app/env"
+import { dev } from "$app/environment"
 
 /**
  * How much time is given to walk up to the shooting line

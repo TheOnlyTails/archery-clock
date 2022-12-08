@@ -4,12 +4,12 @@
 	"settings": {
 		"button": "הגדרות",
 		"title": "הגדרות שעון",
-		"ends_per_round": "סטים בסבב (ברירת מחדל: {default})",
-		"firing_rotation": "שיטת ירי (ברירת מחדל: {default})",
-		"end_length": "אורך סט בשניות (ברירת מחדל: {default})",
-		"walkup_length": "זמן עלייה לקו יורים בשניות (ברירת מחדל: {default})",
-		"warning_time": "זמן אזהרה לפני סוף סט בשניות (ברירת מחזל: {default})",
-		"beep_volume": "עוצמת הצפצוף (ברירת מחדל: {default}%)",
+		"ends_per_round": "סטים בסבב",
+		"firing_rotation": "שיטת ירי",
+		"end_length": "אורך סט",
+		"walkup_length": "זמן עלייה לקו יורים",
+		"warning_time": "מן אזהרה לפני סוף סט",
+		"beep_volume": "עוצמת הצפצוף",
 		"reset": "אפס",
 		"done": "אשר"
 	},

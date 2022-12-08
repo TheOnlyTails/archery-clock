@@ -3,6 +3,7 @@
   import { changeState } from "$lib/clock-state"
   import { walkupLength } from "$lib/settings"
   import { _ } from "svelte-i18n"
+  import { page } from "$app/stores"
   import { beepAudio, NextButton } from "$lib"
 
   /**
@@ -17,7 +18,7 @@
   $: if (walkupTimer <= 0) {
     // move to end
     beepAudio.playBeep()
-    changeState()
+    changeState($page)
   }
 </script>
 
@@ -28,5 +29,5 @@
 </main>
 
 <style lang="scss">
-	@use "./Walkup";
+	@use "src/styles/pages/Walkup";
 </style>

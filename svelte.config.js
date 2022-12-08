@@ -16,9 +16,6 @@ const config = {
 
   kit: {
     adapter: adapter(),
-    prerender: {
-      default: true
-    },
     alias: {
       $util: "src/lib/util"
     }
