@@ -17,7 +17,7 @@
 
   $: if (walkupTimer <= 0) {
     // move to end
-    (async () => await beepAudio.playBeep())()
+    beepAudio.playBeep()
     changeState($page)
   }
 </script>

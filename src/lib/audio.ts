@@ -1,7 +1,7 @@
 import { get } from "svelte/store"
 import { beepVolume } from "$lib/settings"
 
-export const beepAudio: { beep: HTMLAudioElement | undefined, playBeep: (times?: number) => Promise<void>} = {
+export const beepAudio: { beep: HTMLAudioElement | undefined, playBeep: (times?: number) => void} = {
   beep: undefined,
   playBeep: async (times = 1) => {
     if (beepAudio.beep) {
