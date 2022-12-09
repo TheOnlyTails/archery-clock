@@ -9,16 +9,16 @@
 	import "fluent-svelte/theme.css"
 	import "../styles/_global.scss"
 
-	const handleKeys = (e: KeyboardEvent) => {
+	const handleKeys = async (e: KeyboardEvent) => {
 		if ($page.route.id !== "/end" && (e.key === "Enter" || e.key === " " || e.key === "Tab")) {
 			e.preventDefault()
 
 			if ($page.route.id === "/") {
 				// going to walkup
-				beepAudio.playBeep(2)
+				await beepAudio.playBeep(2)
 			} else if ($page.route.id === "/walkup") {
 				// starting an end
-				beepAudio.playBeep()
+				await beepAudio.playBeep()
 			}
 
 			changeState($page)
