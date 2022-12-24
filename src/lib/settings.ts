@@ -1,4 +1,4 @@
-import { defaultValue } from "$util/store-utils"
+import { defaultValue } from "$lib/stores"
 import { dev } from "$app/environment"
 
 /**

@@ -4,7 +4,7 @@
   import { walkupLength } from "$lib/settings"
   import { _ } from "svelte-i18n"
   import { page } from "$app/stores"
-  import { beepAudio, NextButton } from "$lib"
+  import { playBeep, NextButton } from "$lib"
 
   /**
    * number of seconds during walkup
@@ -17,7 +17,7 @@
 
   $: if (walkupTimer <= 0) {
     // move to end
-    beepAudio.playBeep()
+    playBeep()
     changeState($page)
   }
 </script>

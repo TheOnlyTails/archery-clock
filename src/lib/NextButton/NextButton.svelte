@@ -4,11 +4,11 @@
 	import { Button } from "fluent-svelte"
 	import Play from "@fluentui/svg-icons/icons/play_16_regular.svg?raw"
 	import { _ } from "svelte-i18n"
-	import { beepAudio } from "$lib/audio"
+	import { playBeep } from "$lib/audio"
 
 	const handleClick = () => {
 		if ($page.route.id !== "/end") {
-			beepAudio.playBeep($page.route.id === "/" ? 2 : 1)
+			playBeep($page.route.id === "/" ? 2 : 1)
 			changeState($page)
 		}
 	}

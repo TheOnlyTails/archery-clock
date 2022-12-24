@@ -5,7 +5,7 @@
 
 	import { changeState, currentEnd, isStartingEnd, nowShooting } from "$lib/clock-state"
 	import { endLength, ends, firingRotationType, warningTimeUntilEnd } from "$lib/settings"
-	import { NextButton, beepAudio } from "$lib"
+	import { NextButton, playBeep } from "$lib"
 	import { Button, TextBlock } from "fluent-svelte"
 
 	import Pause from "@fluentui/svg-icons/icons/warning_16_regular.svg?raw"
@@ -42,13 +42,13 @@
 		const goToIdle = async () => {
 			$isStartingEnd = true
 			$currentEnd++
-			beepAudio.playBeep(3)
+			playBeep(3)
 			changeState($page)
 		}
 
 		const goToWalkup = () => {
 			$isStartingEnd = false
-			beepAudio.playBeep(2)
+			playBeep(2)
 			goto("/walkup")
 		}
 
@@ -62,7 +62,7 @@
 
 	const stop = () => {
 		paused = !paused
-		if (paused) beepAudio.playBeep(5)
+		if (paused) playBeep(5)
 	}
 </script>
 

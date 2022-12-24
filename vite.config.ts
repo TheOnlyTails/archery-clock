@@ -6,15 +6,12 @@ const config: UserConfig = {
 	plugins: [
 		sveltekit(),
 		SvelteKitPWA({
-			mode: "development",
-			scope: "/",
-			base: "/",
 			manifest: {
 				name: "Archery Clock",
 				short_name: "Archery Clock",
 				description: "A minimal archery clock for timing ends.",
-				theme_color: "#005fb8",
-				background_color: "#F2F2F2",
+				theme_color: "#60cbfd",
+				background_color: "#f2f2f2",
 				start_url: "/",
 				scope: "/",
 				display: "fullscreen",

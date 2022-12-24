@@ -1,4 +1,4 @@
-import adapter from "@sveltejs/adapter-auto"
+import adapter from "@sveltejs/adapter-vercel"
 import preprocess from "svelte-preprocess"
 import autoprefixer from "autoprefixer"
 import cssnano from "cssnano"
@@ -15,10 +15,7 @@ const config = {
   }),
 
   kit: {
-    adapter: adapter(),
-    alias: {
-      $util: "src/lib/util"
-    }
+    adapter: adapter({ edge: true }),
   }
 }
 

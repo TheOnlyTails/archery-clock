@@ -1,6 +1,6 @@
 import { derived, get, type Readable, writable } from "svelte/store"
 import { ends, firingRotationType } from "$lib/settings"
-import { defaultValue } from "$util/store-utils"
+import { defaultValue } from "$lib/stores"
 import { goto } from "$app/navigation"
 import type { Page } from "@sveltejs/kit"
 
