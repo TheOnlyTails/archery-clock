@@ -15,7 +15,7 @@ export const playBeep = async (times = 1) => {
 	const gain = audioContext.createGain()
 	gain.gain.setValueAtTime(get(beepVolume) / 100, audioContext.currentTime)
 
-	oscillator.connect(audioContext.destination).connect(gain)
+	oscillator.connect(gain).connect(audioContext.destination)
 
 	for (let i = 0; i <= times; i++) {
 		oscillator.start()
