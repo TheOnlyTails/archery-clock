@@ -7,16 +7,20 @@ export const playBeep = async (times = 1) => {
 	if (!browser) return
 
 	const synth = new Synth({
-		volume: 10 & Math.log10(get(beepVolume) / 100)
+		volume: 10 & Math.log10(get(beepVolume) / 100),
 	}).toDestination()
 	const time = now()
 
-	const note = "C4"
+	const note = "F5"
 
 	for (let i = 0; i < times; i++) {
 		// trigger the attack immediately
 		synth.triggerAttack(note, time + i)
 		// wait one second before triggering the release
 		synth.triggerRelease(time + i + 1)
+
+		await sleep(200)
 	}
 }
+
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms))
