@@ -13,7 +13,7 @@ export const playBeep = async (times = 1) => {
 
 	const note = "C4"
 
-	for (let i = 0; i <= times; i++) {
+	for (let i = 0; i < times; i++) {
 		// trigger the attack immediately
 		synth.triggerAttack(note, time + i)
 		// wait one second before triggering the release
