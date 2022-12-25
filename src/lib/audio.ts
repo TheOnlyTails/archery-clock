@@ -1,7 +1,7 @@
 import { browser } from "$app/environment"
 import { beepVolume } from "$lib/settings"
 import { get } from "svelte/store"
-import { Synth, now } from "tone"
+import { Loop, Synth, now } from "tone"
 
 export const playBeep = async (times = 1) => {
 	if (!browser) return
@@ -12,15 +12,17 @@ export const playBeep = async (times = 1) => {
 	const time = now()
 
 	const note = "F5"
+	const interval = 0.4
+	const duration = 1
 
-	for (let i = 0; i < times; i++) {
+	const loop = new Loop(() => {
 		// trigger the attack immediately
-		synth.triggerAttack(note, time + i)
+		synth.triggerAttack(note, time)
 		// wait one second before triggering the release
-		synth.triggerRelease(time + i + 1)
+		synth.triggerRelease(time + duration)
+	}, interval)
 
-		await sleep(200)
-	}
+	loop.start()
+
+	setTimeout(loop.stop, times * (interval + duration) * 1000)
 }
-
-const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms))
