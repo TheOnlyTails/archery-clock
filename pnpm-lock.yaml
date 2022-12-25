@@ -18,6 +18,7 @@ specifiers:
   svelte-check: ^3.0.1
   svelte-i18n: ^3.6.0
   svelte-preprocess: ^5.0.0
+  tone: ^14.7.77
   tslib: ^2.4.1
   typescript: ^4.9.4
   vite: ^4.0.3
@@ -44,6 +45,7 @@ devDependencies:
   svelte: 3.55.0
   svelte-check: 3.0.1_z65gjjye4e5pmogqkv4yolh7vq
   svelte-preprocess: 5.0.0_nq7iz5ahyq7ey7rsxvk46dafhu
+  tone: 14.7.77
   tslib: 2.4.1
   typescript: 4.9.4
   vite: 4.0.3_sass@1.57.1
@@ -1857,6 +1859,14 @@ packages:
   /at-least-node/1.0.0:
     resolution: {integrity: sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==}
     engines: {node: '>= 4.0.0'}
+    dev: true
+
+  /automation-events/4.0.25:
+    resolution: {integrity: sha512-er1qdVevDNfZIQt18B31GyVX/D98tI0ztZ3z/VU6PBT0hTF8Emodl8e452k2VYdoiSTvDk0xaah7MC7AfoaZfA==}
+    engines: {node: '>=12.20.1'}
+    dependencies:
+      '@babel/runtime': 7.20.7
+      tslib: 2.4.1
     dev: true
 
   /autoprefixer/10.4.13_postcss@8.4.20:
@@ -3885,6 +3895,14 @@ packages:
     deprecated: 'Modern JS already guarantees Array#sort() is a stable sort, so this library is deprecated. See the compatibility table on MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#browser_compatibility'
     dev: true
 
+  /standardized-audio-context/25.3.36:
+    resolution: {integrity: sha512-I3+jpIQP2PdGDrAx9Cf4/atC92PbJt+ejLUA/mwBx3OgyEStKC57D/wTce2K3PeJBbXJ0w//I99PZTBJrpxg/A==}
+    dependencies:
+      '@babel/runtime': 7.20.7
+      automation-events: 4.0.25
+      tslib: 2.4.1
+    dev: true
+
   /streamsearch/1.1.0:
     resolution: {integrity: sha512-Mcc5wHehp9aXz1ax6bZUyY5afg9u2rv5cqQI3mRrYkGC8rW2hM02jWuwjtL++LS5qinSyhj2QfLyNsuc+VsExg==}
     engines: {node: '>=10.0.0'}
@@ -4177,6 +4195,13 @@ packages:
     engines: {node: '>=8.0'}
     dependencies:
       is-number: 7.0.0
+    dev: true
+
+  /tone/14.7.77:
+    resolution: {integrity: sha512-tCfK73IkLHyzoKUvGq47gyDyxiKLFvKiVCOobynGgBB9Dl0NkxTM2p+eRJXyCYrjJwy9Y0XCMqD3uOYsYt2Fdg==}
+    dependencies:
+      standardized-audio-context: 25.3.36
+      tslib: 2.4.1
     dev: true
 
   /totalist/3.0.0:
