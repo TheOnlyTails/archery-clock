@@ -7,7 +7,7 @@
 	import { pwaInfo } from "virtual:pwa-info"
 
 	import "fluent-svelte/theme.css"
-	import "../styles/_global.scss"
+	import "../styles/global.css"
 
 	const handleKeys = (e: KeyboardEvent) => {
 		if ($page.route.id !== "/end" && (e.key === "Enter" || e.key === " " || e.key === "Tab")) {

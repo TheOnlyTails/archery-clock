@@ -11,7 +11,8 @@
 		walkupLength,
 		warningTimeUntilEnd,
 	} from "$lib/settings"
-	import { Info, NextButton } from "$lib"
+	import { NextButton } from "$lib"
+	import Info from "./idle/Info.svelte"
 
 	import { Button, ComboBox, ContentDialog, NumberBox, Slider } from "fluent-svelte"
 	import Settings from "@fluentui/svg-icons/icons/settings_16_regular.svg?raw"
@@ -87,14 +88,10 @@
 					bind:value={$firingRotationType}
 				/>
 
-				<label for="setting-end-length"
-					>{$_("settings.end_length")}</label
-				>
+				<label for="setting-end-length">{$_("settings.end_length")}</label>
 				<NumberBox id="setting-end-length" bind:value={$endLength} min={10} max={3600} inline />
 
-				<label for="setting-walkup-length"
-					>{$_("settings.walkup_length")}</label
-				>
+				<label for="setting-walkup-length">{$_("settings.walkup_length")}</label>
 				<NumberBox
 					id="setting-walkup-length"
 					bind:value={$walkupLength}
@@ -122,17 +119,17 @@
 					bind:value={$beepVolume}
 					suffix="%"
 					min={0}
-					max={100}
-					step={1}
-					ticks={[0, 25, 50, 75, 100]}
+					max={1}
+					step={0.01}
+					ticks={[0, 0.25, 0.5, 0.75, 1]}
 				>
 					<svelte:fragment slot="tooltip" let:value let:suffix>
 						{#if value > 0}
-							{@html value >= 50 ? SpeakerLoud : SpeakerQuiet}
+							{@html value >= 0.5 ? SpeakerLoud : SpeakerQuiet}
 						{:else}
 							{@html SpeakerSilent}
 						{/if}
-						{value}{suffix}
+						{value * 100}{suffix}
 					</svelte:fragment>
 				</Slider>
 			</div>
@@ -152,6 +149,6 @@
 	</main>
 {/if}
 
-<style lang="scss">
-	@use "src/styles/pages/Idle";
+<style>
+	@import "./idle/Idle.css";
 </style>

@@ -1,33 +1,42 @@
 <script lang="ts">
-  import { onMount } from "svelte"
-  import { changeState } from "$lib/clock-state"
-  import { walkupLength } from "$lib/settings"
-  import { _ } from "svelte-i18n"
-  import { page } from "$app/stores"
-  import { playBeep, NextButton } from "$lib"
+	import { onMount } from "svelte"
+	import { changeState } from "$lib/clock-state"
+	import { walkupLength } from "$lib/settings"
+	import { _ } from "svelte-i18n"
+	import { page } from "$app/stores"
+	import { playBeep, NextButton } from "$lib"
+	import type { Snapshot } from "@sveltejs/kit"
 
-  /**
-   * number of seconds during walkup
-   */
-  let walkupTimer = $walkupLength
+	/**
+	 * number of seconds during walkup
+	 */
+	let timer = $walkupLength
 
-  onMount(() => {
-    setInterval(() => walkupTimer--, 1000)
-  })
+	export const snapshot: Snapshot = {
+		capture: () => ({
+			walkupTimer: timer,
+		}),
+		restore: (state) => (timer = state.walkupTimer),
+	}
 
-  $: if (walkupTimer <= 0) {
-    // move to end
-    playBeep()
-    changeState($page)
-  }
+	onMount(() => {
+		const interval = setInterval(() => timer--, 1000)
+		return () => clearInterval(interval)
+	})
+
+	$: if (timer <= 0) {
+		// move to end
+		playBeep()
+		changeState($page)
+	}
 </script>
 
 <main class="walkup">
-  <h1>{$_("walkup.title")}</h1>
-  <p>{walkupTimer}</p>
-  <NextButton />
+	<h1>{$_("walkup.title")}</h1>
+	<p class="display">{timer}</p>
+	<NextButton />
 </main>
 
-<style lang="scss">
-	@use "src/styles/pages/Walkup";
+<style>
+	@import "./Walkup.css";
 </style>

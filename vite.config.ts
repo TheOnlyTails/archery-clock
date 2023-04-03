@@ -1,11 +1,22 @@
 import { sveltekit } from "@sveltejs/kit/vite"
 import type { UserConfig } from "vite"
 import { SvelteKitPWA } from "@vite-pwa/sveltekit"
+import lightningcss from "vite-plugin-lightningcss"
 
 const config: UserConfig = {
 	plugins: [
 		sveltekit(),
+		lightningcss({
+			minify: true,
+			browserslist: "last 2 versions, >= 0.25%, not dead",
+			drafts: {
+				customMedia: true,
+				nesting: true,
+			},
+		}),
 		SvelteKitPWA({
+			strategies: "generateSW",
+			srcDir: "./src",
 			manifest: {
 				name: "Archery Clock",
 				short_name: "Archery Clock",
@@ -37,11 +48,13 @@ const config: UserConfig = {
 			injectManifest: {
 				globPatterns: ["client/**/*.{js,css,ico,png,svg,webp,woff,woff2}"],
 			},
+			workbox: {
+				globPatterns: ["client/**/*.{js,css,ico,png,svg,webp,woff,woff2}"],
+			},
 			devOptions: {
 				enabled: true,
 				type: "module",
-				navigateFallback: "/",
-			},
+			}
 		}),
 	],
 }

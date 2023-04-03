@@ -1,5 +1,4 @@
 import { defaultValue } from "$lib/stores"
-import { dev } from "$app/environment"
 
 /**
  * How much time is given to walk up to the shooting line
@@ -24,9 +23,9 @@ export const ends = defaultValue(10)
 /**
  * Toggles whether each end has 2 parts (AB-CD)
  */
-export const firingRotationType = defaultValue<"AB" | "ABCD">(!dev ? "AB" : "ABCD")
+export const firingRotationType = defaultValue<"AB" | "ABCD">("AB")
 
 /**
- *
+ * How loud the beep is
  */
-export const beepVolume = defaultValue(50)
+export const beepVolume = defaultValue(0.5)

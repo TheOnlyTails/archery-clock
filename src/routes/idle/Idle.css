@@ -1,20 +1,18 @@
-@use "src/styles/mixins" as *;
-
 .idle {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	margin: 1rem;
+	/* margin: 1rem; */
 	margin-block-end: 0;
 
-	h1 {
+	& h1 {
 		margin-block: 0;
 		font-size: 7.5vw;
 		font-weight: bold;
 	}
 
-	p {
+	& p {
 		font-size: 1.25rem;
 		font-weight: 500;
 		text-align: center;
@@ -26,10 +24,6 @@
 		justify-content: center;
 		gap: 1ch;
 		flex-wrap: wrap;
-
-		:global {
-			.button { @include button }
-		}
 	}
 
 	.settings {
@@ -40,7 +34,7 @@
 
 		:global {
 			.slider-tooltip svg {
-				@include icon($size: 1rem);
+				--icon-size: 1rem;
 				margin-inline-end: 1ch;
 			}
 		}

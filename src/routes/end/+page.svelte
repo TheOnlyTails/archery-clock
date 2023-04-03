@@ -10,17 +10,30 @@
 
 	import Pause from "@fluentui/svg-icons/icons/warning_16_regular.svg?raw"
 	import { goto } from "$app/navigation"
+	import type { Snapshot } from "@sveltejs/kit"
 
-	let endTimer = $endLength
+	let timer = $endLength
 	let paused = false
 
-	$: if (endTimer === 0) next()
+	export const snapshot: Snapshot = {
+		capture: () => ({
+			endTimer: timer,
+			paused,
+		}),
+		restore: (state) => {
+			timer = state.endTimer
+			paused = state.paused
+		},
+	}
+
+	$: if (timer === 0) next()
 
 	onMount(() => {
-		setInterval(() => {
+		const interval = setInterval(() => {
 			// count down until 0 while the timer isn't paused
-			if (endTimer !== 0 && !paused) endTimer--
+			if (timer !== 0 && !paused) timer--
 		}, 1000)
+		return () => clearInterval(interval)
 	})
 
 	const stopClock = async (e: KeyboardEvent) => {
@@ -68,13 +81,13 @@
 
 <svelte:window on:keydown={stopClock} />
 
-<main class="end" class:paused class:warning={endTimer <= $warningTimeUntilEnd}>
+<main class="end" class:paused class:warning={timer <= $warningTimeUntilEnd}>
 	<h1>{$_("end.title", { values: { current: $currentEnd, total: $ends, abcd: $nowShooting } })}</h1>
-	<p class="end-display">{!paused ? endTimer : "STOP"}</p>
+	<p class="display">{!paused ? timer : "STOP"}</p>
 	<TextBlock variant="subtitle">Press space to continue</TextBlock>
 	<div class="buttons">
 		<NextButton on:click={next} />
-		{#if endTimer !== 0}
+		{#if timer !== 0}
 			<Button class="stop-button {paused ? 'paused' : ''}" on:click={stop}>
 				{@html Pause}
 				{#if !paused}
@@ -87,6 +100,6 @@
 	</div>
 </main>
 
-<style lang="scss">
-	@use "src/styles/pages/End";
+<style>
+	@import "./End.css";
 </style>

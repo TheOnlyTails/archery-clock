@@ -1,0 +1,68 @@
+@custom-media --small-screen (width >= 1000px);
+
+:dir(rtl) {
+	direction: rtl;
+}
+
+:root {
+	--icon-size: 1em;
+}
+
+body {
+	margin: 0;
+	background: var(--fds-solid-background-base);
+	color: var(--fds-text-primary);
+	font-family: var(--fds-font-family-display);
+	font-size: 1rem;
+
+	block-size: 100vh;
+	block-size: 100dvh;
+}
+
+.button {
+	display: flex;
+	align-items: center;
+	gap: 1ch;
+
+	padding: 1ch;
+
+	font-size: var(--fds-subtitle-font-size);
+	font-weight: 500;
+	user-select: none;
+	cursor: pointer;
+
+	& svg {
+		--icon-size: var(--fds-subtitle-font-size);
+	}
+}
+
+.display {
+	font-size: 20vw;
+	font-weight: 500;
+	margin-block: 1rem;
+	user-select: none;
+
+	@media (--small-screen) {
+		font-size: 40vw;
+	}
+}
+
+.title {
+	font-size: 5vw;
+	font-weight: 500;
+	color: currentColor;
+	margin-block-start: 5vh;
+	text-align: center;
+	user-select: none;
+
+	@media (small-screen) {
+		font-size: 7.5vw;
+	}
+}
+
+svg {
+	inline-size: var(--icon-size);
+	block-size: auto;
+	fill: currentColor;
+	user-select: none;
+}
