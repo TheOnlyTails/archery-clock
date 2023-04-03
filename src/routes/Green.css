@@ -1,0 +1,34 @@
+.green {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	background: var(--green);
+	color: white;
+
+	&.warning {
+		background: var(--yellow);
+	}
+
+	&.paused {
+		background: var(--red);
+	}
+
+	.buttons {
+		display: flex;
+		gap: 1rem;
+		align-items: center;
+
+		> .button.danger-button {
+			background: var(--red);
+
+			&.paused,
+			&.paused:is(:hover, :focus) {
+				background: var(--green);
+			}
+
+			&:is(:hover, :focus) {
+				background: var(--red);
+			}
+		}
+	}
+}

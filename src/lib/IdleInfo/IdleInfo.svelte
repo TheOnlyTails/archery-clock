@@ -13,7 +13,7 @@
   </h2>
 </div>
 
-<style>
+<style lang="postcss">
   .clock-state-info {
     display: flex;
     align-items: center;

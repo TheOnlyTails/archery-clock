@@ -6,8 +6,8 @@
 		"title": "Clock settings",
 		"ends_per_round": "Ends per Round",
 		"firing_rotation": "Firing Rotation",
-		"end_length": "End Length",
-		"walkup_length": "Walkup Length",
+		"end_duration": "End Duration",
+		"red_duration": "Red Duration",
 		"warning_time": "End Warning Time",
 		"beep_volume": "Beep Volume",
 		"reset": "Reset",
@@ -17,15 +17,15 @@
 		"current_end": "Current End",
 		"up_next": "Up Next"
 	},
-	"walkup": {
-		"title": "Walkup"
+	"red": {
+		"title": "Walk to the line"
 	},
-	"end": {
+	"green": {
 		"title": "End {current}/{total} · {abcd}"
 	},
 	"next_button": {
 		"start": "Start",
-		"continue": "Next"
+		"continue": "Continue"
 	},
 	"reset_button": "Reset",
 	"stop_button": {

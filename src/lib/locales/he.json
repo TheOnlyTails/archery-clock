@@ -6,8 +6,8 @@
 		"title": "הגדרות שעון",
 		"ends_per_round": "סטים בסבב",
 		"firing_rotation": "שיטת ירי",
-		"end_length": "אורך סט",
-		"walkup_length": "זמן עלייה לקו יורים",
+		"end_duration": "אורך סט",
+		"red_duration": "זמן עלייה לקו יורים",
 		"warning_time": "מן אזהרה לפני סוף סט",
 		"beep_volume": "עוצמת הצפצוף",
 		"reset": "אפס",
@@ -17,10 +17,10 @@
 		"current_end": "סט נוכחי",
 		"up_next": "הבאים בתור"
 	},
-	"walkup": {
+	"red": {
 		"title": "עלייה לקו יורים"
 	},
-	"end": {
+	"green": {
 		"title": "סט {current}/{total} · {abcd}"
 	},
 	"next_button": {

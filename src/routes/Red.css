@@ -1,0 +1,7 @@
+.red {
+	display: grid;
+	place-items: center;
+
+	background: hsl(5, 100%, 44%);
+	color: white;
+}

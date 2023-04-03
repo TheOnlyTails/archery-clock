@@ -1,4 +1,4 @@
-@custom-media --small-screen (width >= 1000px);
+@custom-media --small-screen (width <= 1000px);
 
 :dir(rtl) {
 	direction: rtl;
@@ -6,6 +6,9 @@
 
 :root {
 	--icon-size: 1em;
+	--red: hsl(5deg, 75%, 44%);
+	--yellow: hsl(36deg, 100%, 45%);
+	--green: hsl(120deg, 78%, 27%);
 }
 
 body {
@@ -19,7 +22,11 @@ body {
 	block-size: 100dvh;
 }
 
-.button {
+main {
+	block-size: 100%;
+}
+
+.buttons > .button[class*="style-"] {
 	display: flex;
 	align-items: center;
 	gap: 1ch;
@@ -27,7 +34,6 @@ body {
 	padding: 1ch;
 
 	font-size: var(--fds-subtitle-font-size);
-	font-weight: 500;
 	user-select: none;
 	cursor: pointer;
 
@@ -38,6 +44,7 @@ body {
 
 .display {
 	font-size: 20vw;
+	font-size: 20dvw;
 	font-weight: 500;
 	margin-block: 1rem;
 	user-select: none;
@@ -49,6 +56,7 @@ body {
 
 .title {
 	font-size: 5vw;
+	font-size: 5dvw;
 	font-weight: 500;
 	color: currentColor;
 	margin-block-start: 5vh;

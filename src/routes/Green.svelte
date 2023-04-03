@@ -1,30 +1,17 @@
 <script lang="ts">
 	import { onMount } from "svelte"
 	import { _ } from "svelte-i18n"
-	import { page } from "$app/stores"
 
-	import { changeState, currentEnd, isStartingEnd, nowShooting } from "$lib/clock-state"
-	import { endLength, ends, firingRotationType, warningTimeUntilEnd } from "$lib/settings"
 	import { NextButton, playBeep } from "$lib"
+	import { currentEnd, currentScreen, isStartingEnd, nowShooting } from "$lib/clock-state"
+	import { endLength, ends, firingRotationType, warningTimeUntilEnd } from "$lib/settings"
 	import { Button, TextBlock } from "fluent-svelte"
 
-	import Pause from "@fluentui/svg-icons/icons/warning_16_regular.svg?raw"
-	import { goto } from "$app/navigation"
-	import type { Snapshot } from "@sveltejs/kit"
+	import Warning from "@fluentui/svg-icons/icons/warning_16_regular.svg?raw"
+	import Checkmark from "@fluentui/svg-icons/icons/checkmark_16_regular.svg?raw"
 
 	let timer = $endLength
 	let paused = false
-
-	export const snapshot: Snapshot = {
-		capture: () => ({
-			endTimer: timer,
-			paused,
-		}),
-		restore: (state) => {
-			timer = state.endTimer
-			paused = state.paused
-		},
-	}
 
 	$: if (timer === 0) next()
 
@@ -56,13 +43,13 @@
 			$isStartingEnd = true
 			$currentEnd++
 			playBeep(3)
-			changeState($page)
+			$currentScreen = "idle"
 		}
 
 		const goToWalkup = () => {
 			$isStartingEnd = false
 			playBeep(2)
-			goto("/walkup")
+			$currentScreen = "red"
 		}
 
 		if ($firingRotationType === "ABCD") {
@@ -81,15 +68,18 @@
 
 <svelte:window on:keydown={stopClock} />
 
-<main class="end" class:paused class:warning={timer <= $warningTimeUntilEnd}>
-	<h1>{$_("end.title", { values: { current: $currentEnd, total: $ends, abcd: $nowShooting } })}</h1>
+<main class="green" class:paused class:warning={timer <= $warningTimeUntilEnd}>
+	<h1 class="title">
+		{$_("green.title", { values: { current: $currentEnd, total: $ends, abcd: $nowShooting } })}
+	</h1>
 	<p class="display">{!paused ? timer : "STOP"}</p>
-	<TextBlock variant="subtitle">Press space to continue</TextBlock>
+	<TextBlock class="description" variant="subtitle">Press space to continue</TextBlock>
+
 	<div class="buttons">
 		<NextButton on:click={next} />
 		{#if timer !== 0}
-			<Button class="stop-button {paused ? 'paused' : ''}" on:click={stop}>
-				{@html Pause}
+			<Button class="danger-button {paused ? 'paused' : ''}" on:click={stop}>
+				{@html paused ? Checkmark : Warning}
 				{#if !paused}
 					{$_("stop_button.pause")}
 				{:else}
@@ -101,5 +91,5 @@
 </main>
 
 <style>
-	@import "./End.css";
+	@import "./Green.css";
 </style>

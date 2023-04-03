@@ -29,3 +29,4 @@ export const firingRotationType = defaultValue<"AB" | "ABCD">("AB")
  * How loud the beep is
  */
 export const beepVolume = defaultValue(0.5)
+beepVolume.subscribe((v) => beepVolume.set(Math.floor(v * 100) / 100))

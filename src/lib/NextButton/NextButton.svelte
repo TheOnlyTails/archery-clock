@@ -1,22 +1,13 @@
 <script lang="ts">
-	import { changeState } from "$lib/clock-state"
-	import { page } from "$app/stores"
-	import { Button } from "fluent-svelte"
+	import { currentScreen } from "$lib/clock-state"
 	import Play from "@fluentui/svg-icons/icons/play_16_regular.svg?raw"
+	import { Button } from "fluent-svelte"
 	import { _ } from "svelte-i18n"
-	import { playBeep } from "$lib/audio"
-
-	const handleClick = () => {
-		if ($page.route.id !== "/end") {
-			playBeep($page.route.id === "/" ? 2 : 1)
-			changeState($page)
-		}
-	}
 </script>
 
-<Button class="next-button" on:click={handleClick} on:click variant="accent">
+<Button on:click class="next-button" variant="accent">
 	{@html Play}
-	{#if $page.route.id === "/"}
+	{#if $currentScreen === "idle"}
 		{$_("next_button.start")}
 	{:else}
 		{$_("next_button.continue")}

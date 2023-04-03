@@ -1,31 +1,46 @@
 <script lang="ts">
+	import { beepAudio, playBeep } from "$lib"
 	import { onMount } from "svelte"
-	import { playBeep } from "$lib"
-	import { changeState } from "$lib/clock-state"
-	import { page } from "$app/stores"
 	import { _ } from "svelte-i18n"
 	import { pwaInfo } from "virtual:pwa-info"
 
+	import { currentEnd, currentScreen, isStartingEnd } from "$lib/clock-state"
+
 	import "fluent-svelte/theme.css"
-	import "../styles/global.css"
+	import "../global.css"
+
+	export const snapshot = {
+		capture: () => ({
+			$currentScreen,
+			$currentEnd,
+			$isStartingEnd,
+		}),
+		restore: (state) => {
+			$currentScreen = state.$currentScreen
+			$currentEnd = state.$currentEnd
+			$isStartingEnd = state.$isStartingEnd
+		},
+	}
 
 	const handleKeys = (e: KeyboardEvent) => {
-		if ($page.route.id !== "/end" && (e.key === "Enter" || e.key === " " || e.key === "Tab")) {
+		if ($currentScreen !== "green" && e.key === " ") {
 			e.preventDefault()
 
-			if ($page.route.id === "/") {
+			if ($currentScreen === "idle") {
 				// going to walkup
 				playBeep(2)
-			} else if ($page.route.id === "/walkup") {
+				$currentScreen = "red"
+			} else if ($currentScreen === "red") {
 				// starting an end
 				playBeep()
+				$currentScreen = "green"
 			}
-
-			changeState($page)
 		}
 	}
 
 	onMount(async () => {
+		beepAudio.beep = new Audio("/beep.wav")
+
 		if (pwaInfo) {
 			const { registerSW } = await import("virtual:pwa-register")
 			registerSW({
@@ -34,7 +49,7 @@
 					// uncomment following code if you want check for updates
 					r &&
 						setInterval(() => {
-							console.log("Checking for sw update")
+							console.debug("Checking for sw update")
 							r.update()
 						}, 20000 /* 20s for testing purposes */)
 					console.log(`SW Registered: ${r}`)
