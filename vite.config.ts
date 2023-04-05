@@ -54,7 +54,7 @@ const config: UserConfig = {
 			devOptions: {
 				enabled: true,
 				type: "module",
-			}
+			},
 		}),
 	],
 }
