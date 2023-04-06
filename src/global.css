@@ -63,7 +63,7 @@ main {
 	text-align: center;
 	user-select: none;
 
-	@media (small-screen) {
+	@media (--small-screen) {
 		font-size: 7.5vw;
 	}
 }
