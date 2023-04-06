@@ -1,0 +1,35 @@
+{
+  "title": "שעון קשתות",
+  "press_to_begin": "לחץ על רווח או על הכפתור כדי להתחיל",
+  "settings": {
+    "button": "הגדרות",
+    "title": "הגדרות שעון",
+    "ends_per_round": "סטים בסבב (ברירת מחדל: {default})",
+    "firing_rotation": "שיטת ירי (ברירת מחדל: {default})",
+    "end_duration": "משך סט",
+    "red_duration": "משך עלייה לקו הירי",
+    "warning_time": "זמן אזהרה לפני סוף סט בשניות (ברירת מחזל: {default})",
+    "beep_volume": "עוצמת הצפצוף (ברירת מחדל: {default}%)",
+    "reset": "אפס",
+    "done": "אשר"
+  },
+  "clock_info": {
+    "current_end": "סט נוכחי",
+    "up_next": "הבאים בתור"
+  },
+  "red": {
+    "title": "עלייה לקו הירי"
+  },
+  "green": {
+    "title": "סט {current}/{total} · {abcd}"
+  },
+  "next_button": {
+    "start": "התחלה",
+    "continue": "המשך"
+  },
+  "reset_button": "איפוס",
+  "stop_button": {
+    "pause": "חדל",
+    "continue": "אין סכנה"
+  }
+}
